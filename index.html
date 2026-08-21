@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>五悠工作台</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="五悠工作台">
+<meta name="theme-color" content="#FFF5EC">
+<link rel="apple-touch-icon" sizes="180x180 512x512" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAqqUlEQVR4nO3daXCcx53f8d8MZnDNDEiCIA5eoCSKEnVSkeTVKnbs6LCVOFnHdpxax/a6KrWuSiW1yb7xmaq8W9tJqjbHZl94q1zla3ftjR3bsdcr2Zbl9SVZsnWRoihRlAAeuIh7BoNjrrwAQYHAzGDmebqfeWb6+6lClQ+in2caJP6/p7uf7ogQSqf++r+VGn0PAGDKbR/8eKTR94Br8QNpkJN/9V8p8ABwxe3/+hPUo4DR4QGg2ANA/QgFdtG5FlDwAcA8AoFZdKYBFHwACB6BwB86zyOKPgCEB2GgfnRYHSj6ABB+hIHa0Ek7oOgDQPMiDFRGx1RA4QeA1kEQ2I4O2YSiDwCtjzCwjk4QhR8AXOR6EHD6w1P4AQCuBgEnPzSFHwCwlWtBwKkPS+EHAOzElSDgxIek8AMA6tXqQSDa6BuwjeIPAPCi1etHy6abk3/Z2j84AEBwbv9Q640GtNwHovADAGxppSDQMh9Ekk7+5X+h+AMArLr9Q59sidrZEh/iRQo/ACBgdzR5EGj6RYAUfwBAIzR7/WnqANDsnQ8AaG7NXIeacviimTscANCamm1KoOlGACj+AIAwarb61FQBoNk6FwDglmaqU00xXNFMHQoAgBT+KYHQjwBQ/AEAzSjs9SvUASDsnQcAQDVhrmOhDQBh7jQAAGoV1noWygAQ1s4CAMCLMNa10AWAMHYSAAB+ha2+hWqF4otfC1fnAABg2h0fDsfbAaEZAaD4AwBcEJZ6F4oAEJbOAAAgCGGoew0PAGHoBAAAgtbo+tfQeYgXv/Z5ij8AwGl3fPhTDanFDRsBoPgDANC4etiQ1PECxR8AgGvcGfBIQOAjABR/AAC2C7o+BhoAKP4AAFQWZJ0MLABQ/AEA2FlQ9TKQAEDxBwCgdkHUzYbvAwAAAIJnPQDw9A8AQP1s10+rAYDiDwCAdzbrqLUAQPEHAMA/W/U0ZqNRSRLlHwCA0LIyAvDCV3n6BwDAFBt11XgAoPgDAGCe6fpqNABQ/AEAsMdknWUfAAAAHGQsAPD0DwCAfabqrZGjB1/46uco/gAABOjOj3zaVw1nCgAAAAf5DgA8/QMAEDy/9df3RkBUfwAAmo+vEYDnefoHAKBh/NRhzwGA4g8AQON5rccsAgQAwEGeAgBP/wAAhIeXuswIAAAADqp7E4Hnv8LTPwAAYXTiD2rfHIgRAAAAHFRXAODpHwCA8KqnTjMCAACAg2oOADz9AwAQfrXWa0YAAABwUE0BgKd/AACaRy11mxEAAAAcVONpgAwAAADQSnYcAXj+K5+l+gMA0GR2qt9MAQAA4KCqAYCnfwAAmle1Os4IAAAADqq6CJDHfwAAWlPFEYDnGP4HAKDpVarnlUcAKP8AALQs1gAAAOCgsgHguS8z/A8AQKsoV9cZAQAAwEEEAAAAHLQtADD8DwBA69la3xkBAADAQQQAAAAcRAAAAMBB1wQA5v8BAGhdm+v8lp0Aqf8AALiAKQAAABxEAAAAwEFXA8BzX/4Txv8BAGhxG/WeEQAAABz05iJAnv8BAHDG1QBA/QcAwB1MAQAA4KCIJD37JRYAAgDgEkYAAABwEAEAAAAHEQAAAHAQAQAAAAcRAAAAcBABAAAABxEAAABwUJQ9AAAAcE+MTYABAHAPUwAAADiIAAAAgINizAAAAOAeRgAAAHAQAQAAAAcRAAAAcFCMJQAAALiHEQAAABxEAAAAwEEEAAAAHEQAAADAQQQAAAAcRAAAAMBBBAAAABxEAAAAwEEEAAAAHBQTxwECAOAcjgMGAMBBTAEAAOAgAgAAAA4iAAAA4CACAAAADiIAAADgIAIAAAAOIgAAAOCgGNsAAADgHkYAAABwEAEAAAAHEQAAAHAQAQAAAAcRAAAAcBABAAAAB3EcMAAADoqJBAAAgHOYAgAAwEEEAAAAHEQAAADAQQQAAAAcRAAAAMBBBAAAABxEAAAAwEEEAAAAHEQAAADAQTH2AQQAwD2MAAAA4CACAAAADiIAAADgII4DBgDAQYwAAADgIAIAAAAOiok5AAAAnMMIAAAADiIAAADgIAIAAAAOIgAAAOAgAgAAAA4iAAAA4CACAAAADiIAAADgIAIAAAAOIgAAAOCgGBsBAwDgHo4DBgDAQUwBAADgIAIAAAAOIgAAAOAgAgAAAA6KiVWAAAA4hxEAAAAcRAAAAMBBBAAAABxEAAAAwEEEAAAAHEQAAADAQQQAAAAcRAAAAMBBBAAAABzEccAAADiIEQAAABwUYwAAAAD3MAIAAICDCAAAADiIAAAAgIMIAAAAOCgm3gMEAMA5jAAAAOAgAgAAAA4iAAAA4CACAAAADiIAAADgIAIAAAAOIgAAAOAgjgMGAMBBjAAAAOAgAgAAAA4iAAAA4CACAAAADoo1+gYabc/wTbrxXR803u7ZH31Dc2+8bLzdndz2/n+r7r2Dxts9+Td/ruX5y8bbrSoS0d0f/aTa2juNNnvxN09o7Nm/N9omEJR7P/afFYmYf3abfOlpjf7yB8bb3UlHarfu/OAfW2l79Jc/0ORLT1tpuxXEXH8JYHHivNZPRIwYbTc1OKzZgANAW3uHunr7rbSdHDqsbMABoLt3wHjxl6T0xCgvvwBlNOLfhc1rliy33+ycnwLIry5redZ8YUsNHTbe5o7XHDhk5clAWg80QesZMn/NUrGgzNQl4+0CQLNxPgBI0uLEqPE2u/cOqi3eYbzdamwW6YYEmkHz11yaHlcxnzPeLgA0mxgDJOtDwgO33Gu0zUgkquTAAS1cPGe03WpsFMwNHcndak+ktLa0aO0aW9kINOnxUfF3Hqik1SYBgmi/eTECoI2iYF5q6IiVdsuJRNuU6D9g9RopC0PylXTu2qt4d9J4u2kLoz0A0IwIAJLWlha1mp4z3m5PgPPmyf4DirbZfakjyHUAdq5VUnrivIV2AaD5EACusDEKkOg/oEi0zXi75QRRnIMMNDbWHCzPXVZ+ddl4uwDQjAgAV9h4Moy2xZS0PCy/web8/4au3n2KdXRZv44k9QweMd6mrakeAGhGBIArbLwJIAU0bB6JBBIApIiSA4esX6W9O6WOnj3G22X4HwDexHHAV6zMTSu3vKR4V8Jou6mhYem5nxttc6vu3n4rG+aU0zM4rPnRV61ew1ZoWhwfZUEwUA0vATiFEYBNbAwRpwYOSRGzuwxuu0agc/P2r2XjGmuZBa1lFoy3CwDNigCwiY1XxNraO9XdO2C83c2CGf5fl9i3X9FY3Oo1bAQAXv8DgGsRADaxtUjMxpa2mwX5fn4k2qbkPnsLG2MdXeq2cJ7B4jjz/wCwGQFgk+zMpAprq8bbtVmgO1J71J7osdZ+OTY/T3LwkEwfzCTxBgAAbEUA2KRUKiozecF4u3b36A/+kB6b17Sx10B+dVnLcwEfZQwAIUcA2GLRwpNivDupzl17jbcrBTv/vyE5cNDeqYMWtk9OXz3yGQCwgQCwha3FYraemhsxAtAW71D3XvMLG6OxuBL7hoy3y/A/AGxHANhiaeqSioW88XZtPKnHOxPq2t1nvN1a2Ageyf6DVrZO5g0AANguxsDotQqFvJYujxkv2KmhYeOD0EkL++XXKjU4rPGTT5lt00KoKOZzylweD80EQKyjS4m+IXX3Dqg92aP25C61J3oU70oo2hZXNBZTNBZXNNqmYiGnYj6vYj6nQm5Na0uL6wdXZRa0ujinpelxLc9fVqlYbPTHagj60jz2AXKL3ePjmtTi+KjxANDZ06t4d0q5bNpYm/7vsSSvK+5tHNZjIwBkpi6pVCwYb7dWsc5u7T58o/YculHJgYPqSNW+xXE01q5orP3qf+/as2/bnynmc8rOTmpxbERzo68oM3lRpVJrFjH6EjArRj7aLj0+It31NuPt9gwd1sy5U8ba81Mw86vLWp6d8txGvCupzl29WlmY8XwPm0WiUaUGDhppa7P0xIiC/jveFm/X3qN3aN9NJ5Tqt7sTZDQWV7L/oJL9B7X/xFuVX8lqbvQVTZ5+Rpmpi9auGxT6Mkgltd4YQKM+U3NgBKCM9OR5lUpF4yvde4aGjQWAaKxdib3eF8ylJ84rOzPhK0T0DA0bCwCJvv3XPKGZEuQGQJ27ejV0x/3qu/FOtcU7ArvuZrHObu276S7tu+kuLU2Pa+LUU5o++0LTDW3Tl4B9BIAyCmurys5MKtFndkV6yuARt6mBQ4pEvQeU9MR5LU2Py8+efqnBYU2dedZHC9e2ZZqtfR22incldfDut6v/+D1WFjF6legb0g3veK/2n3ibLjz9Y82+cbrRt7Qj+hIIDgGggvTEqPEA0N3br1h7p/JrK77b8jsHnx4fVXZ2wtdIh8mibWO75Oz0hAo58zs7vimiwdvv0+G3PGhl9MKUrt19OvbO31d6YlTnnvi2VhZnG31LZdCXQNCiV6dI+Lrma3HMwqtjkYiSg4eN3J+fHfOKhbwyU5dUWFtTdnrcczudu3oV70oa+DwRK69JpidGrf39aE/s0i3/7KM6cv8/CXXB2iw1OKw7PvDv1H/8nob/+6IvfXzZ0si/B634mZrgi30AKkiPj1hp18RWt5FoVMmBQ56/PzN58erKeL87H5p4cu/q3adYZ7fvdraysaujJPUcuF53fODfq+fA9Vbatykaa9f1/+j3dONDH1C0rfEDgPQl0DgEgApyy0vGFrhtltp/xHcb6wvmvB/Ju3lnPL+75Jl4dc/G/v+SlLawAHDfsRM6/u6PKNbRabztIO09eruO//OPKtbR1bB7oC+BxiIAVGHjCTK5z1/xlvwX3c07461/Ru9jcCbWAZgIRVutLMwot5wx2ubQHffrhgfeF6rFaX6kBod163s/pnhXIvBr05dA4xEAqrAxDRCJtinZ7+99dz/D7qVSUemJN1fG51eyWp6b9txeYu+g2tr9vaZlYwGg6fC27+a7NHz/I0bbDIOu3X26+Z9+JNBX7ehLIBwIAFXYmkP2+wTvZ8FcdmZy28r4RT9BJxJRasD7/XSkdqs90eP9+hWYPABoz5Gbdf3b32OsvbBJ7Nuvmx75YCBP4/QlEB4EgCpWF+e0trRovF0/T7xde/wtmCs3quF/HYD3AGDrNENTAaCjZ4+OPvB+a8cfh0XPget16C0PWr0GfQmES2v/SzTAxlGySR+b+PgtmOV2xvM70uFvN8Ejvq5dTi6bMfJ+diTaphsf+oDvKY5msf/EP9SuQ0ettE1fAuFDANiBjWmAtni7502G/K6YL3c07lpmQavpec9t+jnG18YIgKmf2cG73+57vUZziejoA+9TW7v5Vfn0JRA+vLy6AxsjANL6quHM1KX6v89HwVxZmFEuW35lfHp8VB2p3Z7ajbbFlOw/oPREfa/dxbsS6trd5+ma1Zj4mXWkdmvoxFsN3M3O0uOjmjv/qjJTF7UyP6P86rJKhYKi8Xa1J1Lq2tOvXQevV+91x9c3XrJoYyve0ScfM9YmfWmuLwGTCAA7yM5OKb+6bPwd39TQsMZf/FVd39Oe6PFcpKXqT8aL4yPqO3an57ZTQ8N1BwAb+/9L5Uc56jX8u++yvrnL7Osv6cLTj2t5vvxbGIW1FS2vrWh57rJmX39JI7/4gfqO3aHDb3lI8e6UtfsavP0+TZ5+RisLZra5pS/N9SVgElMAOyrVXdhqsb4QsL6jTf2+LlftydjvU7OXqYme/eYDwMZBTn4k9h1Q7/W3Grqj7fKrK3rl0b/Sqz/8RsWCVU6pWNDlM8/p+a//mWbfeNna/UWibTp4r5lFbPSlub4ETIuGYDvi0H/ZWAcQ6+xW556+uu7D9wLAidGKbWfnp5VbXvLcdnLwsEqRSJ2f54jn61WSnjyvYqno6+c9dMfvGr+vDfmVrF76f1/U7MgZz/eXX1vRK499XVMv/9bafe69/lbFEz2+/+3Ql+b6cuPLFlu/P139TM3wFW38LYT/y9q5AEPDdd2HnwCQy2aubG1cuX0/+wHEOjrV3dtf82dpi7ere++A5+tV8ubOht6+2ruT2nuDnSfWUrGgM3/3NWVnJnzd4/pXUed+9l3NXzhr5V4j0agGb73X1z3Sl+tM9OW1XzbZ/V0a/Gdq1Odpji+mAGqQuTymYj5nvN16hvRjHV1XCqw3tRR3/9MAte8HkBo8ZOV9cL+fof/43dY2cTn/6x8rPXlh5z9Yq1JJZx//pq+Rm2r6j9/j62dEX77Jb18CNnAccA1fpUJB6cmL3nu5gtTQkZrvYX23vfrWDGy2OL7z0biLYyOe25fq+zw23v8vFQvKTF709bPuve4W4/clre/AOP7Cr4z/3cwvZzX6lJ1V5vGuxPpCTfrSN799ec2XTYb7tOGfqVGfp0m+iKQ1sjEN0JHcpY7krpr+rM0FgBuWZiZUWFvd8c9VUs892pj/z0xdUrGQ9/z9Handnvdn2MmF3/xEpVLRStvTr7xg5eRKSeq97rin76Mvt/Pal4AtBIAa+dovv4paC6GfE/NqXhlf8vfGQ3uiRx09e3b8cxv7Bpjmd7GmrV/Qq+l5zb5ub6V5qVTU+MmnrLTttU/oy+0IAAgbAkCN0pMXVSqaf+roqaGwR9tiSu7b7/ka6YnzNT8x+Q06tbwOmOg/YOW9cP9nGvgbZank8ivPyfbY7fTZF1UqFoy36/WwJvpyO1sHXwFeEQBqVMytaWl6zHi7tQybJwe8b7Ur1fdkHMS5ADbm/6WS7w2AUpa2qp0dOWOl3c3yK1kr+1VI8rSFL31ZnlvbISPsCAB1sLEfQC2n+/ktmPWsX8hMXvQ1j17L5j5+1zOUk52ZUn51xfP3x7uSaq9xPUY9cstLWro8brzdcubPv2al3eRAfdM19GVl9fYlYBMBoA62zgXYqSD6GU4tFQt1nTlwdSW9R127dwg0kYhSdbwuWCu/4SzRN2joTq6Vmboo+0u3N1/LvMTe+vqGvqys3r4EbCIA1GH9NTnzv4CqBYBIJKrU4CHPbXtZGe97HUCVz5PYO2jlSFi/b2n4OWOhmqXpYJ5Y169lfopKqr9v6MvKbPUN4AUBoA751WVlZy8bb7faCv/uvkG1xb0XTC/F3PeGQFUCQC2LHr1Y9Dn/35HcbeZGtrD1Slk5+dUV5Veyxtttr7Nv6MvK6u1LwCYCQJ1sTAMk+obUFm8v+//5fv9/rP77reetgXKqvdpoY3X4anpea5lFX220W3oyW12cs9JuJStp89dri7fXdRomfVlZvX0J2EQAqJON/QAikaiSA+WH+X0VzFJJ6cn6VzMXcmu+hlsTfUOKWgo05Zj4mcQ77fxSzi2bf4qsJm9pK9udFqpuRl9WV09fAjYRAOpka0OgSkPjXo7Z3ZCdnfS8Mt7LyMGGSDSq1MD21506d/cp3pX03G4lJkZlorHygcWv/GqwRStnYdhaktpi8Zr/LH1ZXT19CdhEAKjTWmZRq+l54+2WezLu3LVX8W7vBdPPynj/CwGPlPnf7GwOY+L1zKilX8o2DpGqfj3vr3BWU0//0JfV+e0fGxuSSVIk4v2skbBe11ZftQoCgAc2RgGS/ds3+/FbMP0FgI1jdb0pN3VhYwOg/EpWy3PTvtuJxszvTChJxYL5HeWqsbGDnSRF4/UEAPqymnr6spySj306qrF1cuOO17WwK+gGP3uauIAA4IGNhYDRWHzb/vj+NwDyfp/rhdX7Gw+pgUOKRK/962Vn/t9fUHlTY55+mkZdXUxfVuXzr6utotaoABC1eN2gR42aDQHAg0Uf8+PVbC2QfhYAri7OaW3J38p4PyMI0Vhcib43zy+o9aCgepkKY7Z+UUTbgv2lauuXeD39Q19W57d/bE1NxDo6rbS7kzaL12UEoLpYqRTMzlqtJDs3pdzykuJdCaPtpoaGVXr2Z5KkeHdSnbt6Pbe1OD4ivz/bhUsjGrjlXs/fnxoaVnrywtX/bMPCmP/PKUnF/JqBu9ku0hZTyccRy/WycciSJBXyazX3M31ZXT19Wen7bWjr6DTyb6nu67bbCwCFnL++bnWMAHhk41yA1OCwdGVBjN/hfxP353d3vc0jGjbm/4v5nLEd2wqWnlqDfuUr1mXneoVc7f1DX1ZXT1+Wk8tmDN3Jtdq7U1babeR1bfVVqyAAeGRjIWCso1PdvQOS/O+Yt75tsT+rmQWt+tgMZT0AXAk0NRwSVK/05AVjq3xt7PomSfFOs6NEjbpePf1DX1bnt3/8Tu1V0pHaffUBJEg2pgY32OqrVkEA8ChtoMCWs+tK4fezYC63vKTlef8r4yV/6x1ind3q2tOnWEeXunv7jdzPZiZCzgYbr3ZKdn+5ldNp4XqF3Jryq8s1/3n6srJ6+7KctaW0obu5ViTaZm0b52q6du210m6xkPfd162OAODR0vSECjnz85GpoWG1tXeoe++A5zZMvqVgYj+AzSMBJpmchllNLxhrazNbv9zKiXV0WhkmX83M1/fn6cuK6u3LctYydvpXkpL7hqy1XUnC0jV5+t8ZAcCjUqmo9MQF4+327D+i1OBhRSLefzQmpyf8PmX37B+2cgBQqVhUZtJc//uZ6qjG1i+3stfa9NaFSfU+0dOXlZkYHTE1uldOpS3JbYl3J9WRsjOy4+c1ZlcQAHwwOQS9ob07pf6b/4GvNkw+GS/PTyvnY0/0nqHhqocDebU0Pa5Cztxq6KWZCWNtbZbsP6ig3otfv5Z52en6+oa+rKzevizH5rHIuw8dtdZ22esdtHe9II+PblYEAB9snQvQd8Ntnr/X70E+5fgJOh2pPUpt2eDIBNN9n8tmtGphaDXelVCib9B4u+XsPmznl2l66mJdf56+rKzeviwnt7yktayddQCJvkFrT+Tl9F5/i7W2CQA7IwD4kJm8aGejCR8rcTMGV8Zv8F1sLawstvEaZmbS/y/ncnqvO26l3c1iHV3Wzlrw0i/0ZXmm+mXpsq3iFlH/zXdZavta8c5u9R65yVr7SwZGW1odAcCHYiGvpalLjb6Na9iYlrDRpl82tmNenLCzw+P6L1S7Q9f7jt1pZee61bS3HSXpy+289mU5C5deN9JOOYO336e2Csd5m7T/xFut7ba4mlnQysKMlbZbCQHAJxtPon7YuJ+lmQkV1rwdK2zD8txlX+sSKpl9/WXjbUrr0yC9191spW1JUiSiwdvvs9L07BtnvH0ffbmN174sZ/78WWNtbRXv7NbBe95hrX1p/edoq58lu/3TSggAPoXp6bhULFzdetdswyUtTpw3365HtkLXanrO2rzhoXsf9PVmRzX7jp1Q1+4+K23PvuGtkNOX23nty3Kys5Nay9h7zW3/ibdq14HrrLQdibbpxofeb3WUYf4CAaAWBACfFifOSyHZazpzedzaQSxpSwcgeWFz1GXm9ZestJvoG9TQHeafeGIdXTpy/yPG25Wk3ErWV8ClL9/kty/LmR2xM8oiSZFIVDc98qFtJ5T6bjfapmMP/ysrW4NvKOZzmr/wmrX2WwkBwKfC2oq1157q5Xfv/mpsvfHghc3POXX6t9bOgT983zsNv14W0Y0P/Uvjh1JtmDz9jEol7wtK6cs3+e3Lsm2+/Fuj7W0V6+jUbf/iD9V//G4j7XX29Oq29/wb7b3hViPtVTJz7pQKAR4a1cwIAAaEZR2AzemItK03Huq0tpTWyqKdjWYkaS2b1sy5U1bajrbFdPzdH7l63oM/Ed3w9t/TnmE7q6hLxaImTv3aVxv05ToTfVnO0uUx66+6RWNxHf3H79Xt7/2Y9gwf8/RGT0dyt47c/4hO/P4fWTsVdLPJ07+xfo1WEVM4Rq+b2uLYiIYsLmipTUmL4+dl6+dZKhSUmbxoZVe/eiyOjVj7jBvGnv+V+m6800rb8a6EbnvvH+q1H39LsyPeFoW1tXfo6APvs/okNXPulNbS/ueY6UtzfVnOxKmndcM73mOl7c1SQ8M6/u4/UC6b0ezIGaUnLmh5dkqrmXnlV1dULOQViUbVFmtXeyKlzp5eJQcOaNfBG5QaPKSgNnDKzk75Or/ENXYOvHZMGBYCZmcvWzuFbcPi2EjjA0AAUxGZqUuaef209lrapCTW0aWb3/1hTb92Uhd+/XjNW7tGom3ad+wOHb7vYbUneqzcm7S+mPT8048baYu+NNeX5Vw+85wO3v329ZP8AhDvTmrglns0cMs9gVyvXhefeaLRt9BUYtYfpxyQy6a1Mj+jzt3BHVay1fq8uN2fZRiCzvo92P87O/rLH2jP8DFF2+xl5L6jt6vv6O1aHBvR3OgrSk9c0MrCjPKryyoVCorG42pP9Ki7t1+7Dt6gvdffqnh30tr9bBg/+ZRWDO43T1/a27u/WMjpwtOP6+iD77d2jWaxdHlM06+dFDWtdjG6yoyF8ZGGBoCFsRHrf+0XJ0ZVKhYViTZm6UhhbUVLs5OBXGt5cU5jz/3C+vvQ0voBUI0eWdmQW17ShWd+YvTvEn1p19Qrz2v/XW81tB6ieY08+UOVKP51YRGgIY1+Og5iIaKNcwbqsTg+Gugrl+ef+YkyIdvp0a6Szj7+TeVXzW/6RF9avFKpqLOPf8v4FuDNZOrMs7z77wEBwJBGvia3mp43csxoLRoZdIJe3FMqFvTKD7+hQs6NV4rGnv+V5kZftdI2fWlXZuqSLvzGzfnv1fS8Xv/59xt9G02JAGDIysKssX2+6xXka4iNDDqNuPbKwozO/vibodnsyZaFsTc08tRjVq9BX9p18bc/bfhIZNCKhbxe/dHf8N6/RwQAgxr1+kmQhTGoRXhbFQv5hg0hz7x+Wq/99LsNuXYQlqbH9fLfflWlgp1NezajL+0pFYt6+QdfVXZ2KvBrN0SppLM//j+h2YelGREADGrU03GQqT+3klV29nJg19tg7ejlGk2efkYjv3q0Yde3ZXl+Wi9970uBPkHRl/bkV1f00ve+pNXMQsPuISiv/+JvNf2anY2mXEEAMKgRw2/5leXAC3Ijgk4YUv6l536u1574dssstkpPnNfJb31BuWwm8GvTl/asZRb04re+EJotyk0rFYt67Ylva/zFJxt9K02PAGDQ0uyk8qvLgV5zMYD3/7ddswFBJyxnEUye/o1Of//LoToe2YuZc6d06jtfVM7y5lHV0Jf2rGUWdPL//kXLrYwvrK3o9Pe/xHa/hhAATCqVAn9SbcST8ULQAaB0ZZvjkJi/8Jqe+/r/1sLYG42+lboV8zm9/rPv6cyjfx2Ksx3oS3sKa6s6/b2vaPTJH4by/uq1cOkNPf+NP9f8hXONvpWWwVbAhi2Oj6r3yM3BXa8BT+NrmQWtpufUkdoTyPWWZiZC95S4mp7Tqe98UfvvvF/Dv/OworF4o29pR+mJ8zr7+Ldq3i43KPSlPaVSURef/XvNjrysow+8T6mBQ42+pboVcmsaffIxjZ/8tdjlzywCgGFBFuRiPqfM5bHArrfZwtiI+m8KJgCEYf6/rFJJY8//UtOvvqhDb3lAA8fvadguidUsz8/o/K9/dGXBVEh/gdKXVmVnp/TiN7+gvTfcosNvebApdg0s5nMaP/mULj37s1BNr7QSAoBhmalLKuZzgTzFpCcvWDtvfSeLYyPqv+muwK4VZmvZtM799Lsae/4X2n/ibdp37E61xdsbfVtamh7X+MmnNHXm2aZZbEdf2lTSzLmXNHPutPqO3qrB235Huw5cp6BO6qvV2tKips48q7EXnwzFospWxnHAhpUKBaUnL175h2XX4thowx5CgizKjfyc9Viem9G5J76jkV/+nfYdO6H+m0+sD7l6OEPdq/zKsmbfeFkTLz2j9ER41k3Ui760qaTps6c0ffaUOnr2qP/mu9R39HZ19/Y37I7yq8uaGz2ry2ee09yFsy2/WVRYRH7xZ5+hpwFL4l0J7Rm+SXuGjyk1eMj4sa3FQl7Z6QktXHpj/Zz28fMqlZr1CbU6+tKu9kSPdh86qt2HblBy4KC6du21FrhyK1ktTY9r8dIbmj//mjJTl5zq67AgAAABinV2KbnvgLr3DqgjtVsdyV1qT/Yo3pVQNBZXWyyuaFtckWhUxUJexXxOxXxOhdyaVpcWryzAXNDK4pyWLo8pOzvZxEPS/tCXdkVjcXX39qt776A6e3arvTul9kSP2hMpxTq6FI3FFWmLKRqLKRptU6lUVDGfV7GQV6mQVyG3prWl9PpXdlFrmUVl5y4rOzOhtaV0oz8eRAAAAMBJsaaYXAUAAEaF7z0bAABgXYznfwAA3MMIAAAADiIAAADgIAIAAAAOIgAAAOAgAgAAAA4iAAAA4CACAAAADiIAAADgII4DBgDAQYwAAADgIAIAAAAOIgAAAOAgAgAAAA4iAAAA4KCYeA0AAADnMAIAAICDCAAAADgoxgQAAADuYQQAAAAHEQAAAHAQAQAAAAcRAAAAcBABAAAAB3EcMAAADmIEAAAABxEAAABwEAEAAAAHEQAAAHAQAQAAAAcRAAAAcBABAAAAB8XERgAAADiHEQAAABxEAAAAwEEEAAAAHEQAAADAQTGWAAIA4B5GAAAAcBDHAQMA4CBGAAAAcBABAAAABxEAAABwEAEAAAAHEQAAAHAQAQAAAAcRAAAAcBABAAAABxEAAABwUExsBQgAgHMYAQAAwEEEAAAAHEQAAADAQQQAAAAcxHHAAAA4KEb9BwDAPUwBAADgIAIAAAAOIgAAAOAgAgAAAA4iAAAA4CACAAAADiIAAADgIAIAAAAOIgAAAOAgAgAAAA6KicMAAABwDiMAAAA4iAAAAICDOA4YAAAHMQIAAICDCAAAADiIAAAAgINiLAEAAMA9jAAAAOAgAgAAAA4iAAAA4CACAAAADiIAAADgIAIAAAAOIgAAAOAgAgAAAA4iAAAA4KCYOA4QAADncBwwAAAOYgoAAAAHEQAAAHAQAQAAAAcRAAAAcBABAAAABxEAAABwEAEAAAAHxdgGAAAA9zACAACAgwgAAAA4iAAAAICDCAAAADiIAAAAgIMIAAAAOIjjgAEAcFBMJAAAAJzDFAAAAA4iAAAA4CACAAAADiIAAADgIAIAAAAOIgAAAOAgAgAAAA4iAAAA4CACAAAADoqxDyAAAO5hBAAAAAcRAAAAcBABAAAAB3EcMAAADmIEAAAABxEAAABwUEzMAQAA4Jzogx//00ijbwIAAASLKQAAABxEAAAAwEEEAAAAHEQAAADAQQQAAAAcRAAAAMBBBAAAABwUlST2AgAAwB0PfvxPI4wAAADgoNjGf2BDYAAA3HE1AJAAAABwB1MAAAA46GoAeOgTLAQEAKDVbdR7RgAAAHAQAQAAAAfFrv2vrAQEAMAF14wAPPSJ/846AAAAWtTmOs8UAAAADiIAAADgIAIAAAAO2hYAWAcAAEDr2VrfGQEAAMBBBAAAABxUNgAwDQAAQOsoV9cZAQAAwEGxiv8PmwICANCyKo4APPRJpgEAAGh2lep55REAMQgAAECrYg0AAAAOqhoAHmYaAACAplWtjjMCAACAg3YMAIwCAADQfHaq31UXAb6J5YAAALQSpgAAAHBQTQHg4U/+D6YBAABoErXUbUYAAABwUM0BgFEAAADCr9Z6zQgAAAAOqisAMAoAAEB41VOnGQEAAMBBnp7of/T5P2ZjAAAAQuThT9U3Ss8IAAAADvIUAOpNGQAAwB4vdZkRAAAAHOQ5ADAKAABA43mtx75GAAgBAAA0jp86XONpgJXxOgAAAM3H9xqAdzIKAABA4PzWXxYBAgDgIGNP7z/8/H9kNgAAgAC881P/03f9NjYCYOJmAABAdabqLVMAAAA4yGgAYBQAAAB7TNZZ4yMAhAAAAMwzXV+tTAEQAgAAMMdGXfW9EVBFvBMAAEBoWVsE+M5PMwoAAIBftuqp1bcACAEAAHhns45afw2QEAAAQP1s10/2AQAAwEGBBABGAQAAqF0QdTOwEQBCAAAAOwuqXgY6BUAIAACgsiDrZOBrAAgBAABsF3R9bFgxfuxzHB8MAIAkvasBD8cNewugER8WAICwaVQ9bHgRfuxz/4GRAACAk9716f/VsDrc8H0AGvnhAQBolEbXv4YHAKnxnQAAQJDCUPdCEQCkcHQGAAC2haXeheImNnvss6wJAAC0pnd9JhzFXwrRCMCGMHUOAACmhK2+hS4ASOHrJAAA/AhjXQtlAJDC2VkAANQrrPUstAFACm+nAQBQizDXsVAHACncnQcAQCVhr1+hvrmteEMAABB2YS/8G0I/ArBZs3QqAMBNzVSnmioASM3VuQAAdzRbfWqqm92KKQEAQKM1W+Hf0HQjAJs1a6cDAFpDM9ehpg4AUnN3PgCgeTV7/Wnqm9/qUaYEAACWPdLkhX9DS3yIzR797B8RAgAAVjzymT9rmbrZMh9kK4IAAMCUVir8G1ruA2316J8QBAAA3jzyn1qv8G9o+kWAO2nlHx4AwJ5Wrx8t/eG2YjQAALCTVi/8G5z4kFsRBAAAW7lS+Dc49WG3IggAAFwr/Buc/NBbEQQAwD2uFv4NTn/4rQgCAND6XC/8G+iECggDANA6KPrb0SE7IAgAQPOi8FdGx9SBMAAA4UfRrw2d5BFhAADCg6JfPzrMAMIAAASPou8PnWcBgQAAzKPgm0VnBoBAAAD1o+DbRec2CKEAAN5EsQ/e/wf+TBbz/wuF+wAAAABJRU5ErkJggg==">
+<style>
+:root {
+  --bg: #FFF9F5;
+  --card: #fff;
+  --nav-bg: linear-gradient(180deg, #FFF5EC 0%, #FDF0F3 40%, #FFF5EE 100%);
+  --primary: #D4A78B;
+  --primary-dark: #B8856D;
+  --text: #5C3D2E;
+  --text-light: #8C6B5A;
+  --text-muted: #C4A895;
+  --border: #F0E1D3;
+  --pink: #E8B4B8;
+  --lavender: #C3B5D8;
+  --mint: #A3C9B7;
+  --peach: #F5C6A0;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ──── 侧边栏 ──── */
+.sidebar {
+  position: fixed; top:0; left:0; bottom:0;
+  width: 230px;
+  background: linear-gradient(180deg, #FFF5EC 0%, #FDF0F3 40%, #FFF5EE 100%);
+  border-right: 1.5px solid var(--border);
+  display: flex; flex-direction: column;
+  z-index: 1000;
+  transition: transform .3s ease;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-header {
+  padding: 32px 22px 22px;
+  border-bottom: 1.5px solid var(--border);
+}
+.sidebar-header h1 {
+  font-size: 23px; color: var(--primary-dark); font-weight: 700; letter-spacing: 2px;
+}
+.sidebar-header h1::before { content: '🍎 '; font-size: 20px; }
+.sidebar-header p {
+  font-size: 12px; color: var(--text-muted); margin-top: 6px; letter-spacing: 3px;
+}
+
+.nav-list {
+  list-style: none; padding: 16px 0; flex:1; overflow-y: auto;
+}
+.nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 24px; margin: 2px 10px;
+  cursor: pointer; color: var(--text-light); font-size: 15px;
+  transition: all .25s; border-radius: 12px;
+  border-left: 3px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.nav-item:hover { background: rgba(212,167,139,0.1); color: var(--text); }
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(212,167,139,0.15), rgba(232,180,184,0.12));
+  color: var(--primary-dark); font-weight: 600;
+  border-left-color: var(--primary);
+}
+.nav-icon {
+  width: 32px; height: 32px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+}
+.nav-item:nth-child(1) .nav-icon { background: linear-gradient(135deg,#FDE8EA,#FADADD); }
+.nav-item:nth-child(2) .nav-icon { background: linear-gradient(135deg,#E8F5EF,#D5EDE0); }
+.nav-item:nth-child(3) .nav-icon { background: linear-gradient(135deg,#FFF3E6,#FFE4CC); }
+.nav-item:nth-child(4) .nav-icon { background: linear-gradient(135deg,#F0EBF8,#E4DCF2); }
+.nav-item:nth-child(5) .nav-icon { background: linear-gradient(135deg,#EEF4FB,#DCE8F6); }
+.nav-item:nth-child(6) .nav-icon { background: linear-gradient(135deg,#FFF5F6,#FFEBED); }
+.nav-item:nth-child(7) .nav-icon { background: linear-gradient(135deg,#FFF9F0,#FFF0D5); }
+.nav-item:nth-child(8) .nav-icon { background: linear-gradient(135deg,#F5F0E8,#EDE3D5); }
+
+.sidebar-footer {
+  padding: 18px 20px 24px; border-top: 1.5px solid var(--border);
+  font-size: 12px; color: var(--text-muted); text-align: center;
+}
+.sidebar-footer-decoration { margin-bottom: 6px; font-size: 14px; opacity: .5; }
+
+/* ──── 主内容 ──── */
+.main-content {
+  margin-left: 230px; padding: 36px 44px; min-height: 100vh;
+}
+
+.page-header { margin-bottom: 28px; }
+.page-header h2 { font-size: 26px; color: var(--text); font-weight: 700; }
+.page-header p { font-size: 14px; color: var(--text-muted); margin-top: 8px; }
+
+.page { display: none; }
+.page.active { display: block; }
+
+/* ──── 按钮 ──── */
+.btn {
+  padding: 10px 22px; border: none; border-radius: 24px;
+  cursor: pointer; font-size: 14px; font-family: inherit;
+  font-weight: 500; transition: all .25s;
+  display: inline-flex; align-items: center; gap: 6px;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff; box-shadow: 0 2px 12px rgba(184,133,109,.2);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(184,133,109,.3); }
+.btn-outline {
+  background: transparent; border: 1.5px solid var(--border); color: var(--text-light);
+}
+.btn-outline:hover { border-color: var(--primary); color: var(--primary-dark); }
+.btn-sm { padding: 6px 16px; font-size: 13px; }
+.btn-danger { background: transparent; color: #D4958A; border: 1.5px solid rgba(212,149,138,.25); }
+.btn-danger:hover { background: rgba(212,149,138,.08); }
+
+/* ──── 卡片 ──── */
+.card {
+  background: var(--card); border-radius: 22px; padding: 26px;
+  box-shadow: 0 2px 12px rgba(184,133,109,.06);
+  margin-bottom: 20px; border: 1px solid rgba(240,225,211,.5);
+}
+.card-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+
+/* ──── 表格 ──── */
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th {
+  text-align: left; padding: 14px 16px;
+  background: linear-gradient(180deg,#FFF5EC,#FDF0F3);
+  color: var(--text-light); font-weight: 600; font-size: 13px;
+  border-bottom: 1.5px solid var(--border); white-space: nowrap;
+}
+.data-table td { padding: 14px 16px; border-bottom: 1px solid rgba(240,225,211,.5); color: var(--text); }
+.data-table tr:hover td { background: rgba(255,245,236,.5); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .actions { white-space: nowrap; }
+.data-table .actions button { margin-right: 6px; }
+
+/* ──── 表单 ──── */
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 13px; color: var(--text-light); margin-bottom: 6px; font-weight: 500; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
+  border-radius: 14px; font-size: 14px; font-family: inherit;
+  color: var(--text); background: var(--bg); transition: all .25s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none; border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(212,167,139,.08); background: #fff;
+}
+.form-group textarea { resize: vertical; min-height: 60px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+/* ──── 状态标签 ──── */
+.status-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.status-pending { background: #FFF3E6; color: #C8843A; }
+.status-arrived { background: #E8F5EF; color: #5E8A6E; }
+.status-cancel { background: #FDE8EA; color: #B06050; }
+.status-shoot { background: #FFF3E6; color: #C8843A; }
+.status-done { background: #E8F5EF; color: #5E8A6E; }
+.status-pub { background: #F0EBF8; color: #7B68A0; }
+
+/* ──── 统计卡片 ──── */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 16px; margin-bottom: 24px; }
+.stat-card {
+  background: #fff; border-radius: 22px; padding: 22px;
+  box-shadow: 0 2px 12px rgba(184,133,109,.06);
+  border: 1px solid rgba(240,225,211,.5);
+  position: relative; overflow: hidden; transition: all .3s;
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(212,167,139,.14); }
+.stat-card::before {
+  content: ''; position: absolute; top: -20px; right: -20px;
+  width: 80px; height: 80px; border-radius: 50%; opacity: .08;
+}
+.stat-card:nth-child(1)::before { background: var(--primary); }
+.stat-card:nth-child(2)::before { background: var(--pink); }
+.stat-card:nth-child(3)::before { background: var(--mint); }
+.stat-card:nth-child(4)::before { background: var(--lavender); }
+.stat-card .stat-label { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; font-weight: 500; }
+.stat-card .stat-value { font-size: 28px; font-weight: 700; color: var(--primary-dark); }
+.stat-card:nth-child(2) .stat-value { color: #C97A82; }
+.stat-card:nth-child(3) .stat-value { color: #5E8A6E; }
+.stat-card:nth-child(4) .stat-value { color: #7B68A0; }
+.stat-card .stat-unit { font-size: 14px; color: var(--text-muted); margin-left: 4px; font-weight: 500; }
+.booking-tabs { display:flex; gap:6px; background:rgba(255,255,255,.6); padding:4px; border-radius:14px; border:1.5px solid var(--border); }
+.booking-tab { padding:8px 16px; border:none; background:transparent; color:var(--text-light); font-size:13px; font-weight:500; border-radius:10px; cursor:pointer; display:flex; align-items:center; gap:6px; font-family:inherit; -webkit-tap-highlight-color:transparent; transition:all .25s; }
+.booking-tab:hover { color:var(--text); }
+.booking-tab.active { background:linear-gradient(135deg, var(--primary), var(--primary-dark)); color:#fff; box-shadow:0 2px 8px rgba(184,133,109,.2); }
+.tab-badge { display:inline-block; min-width:22px; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:600; background:rgba(255,255,255,.4); text-align:center; }
+.booking-tab:not(.active) .tab-badge { background:rgba(212,167,139,.15); color:var(--primary-dark); }
+.booking-row-done td { opacity:.65; background:#FFFCF9; }
+.stat-card-link { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.stat-card-link:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(212,167,139,.18); border-color: var(--primary); }
+.stat-card-link[data-category="banyongjiu"]::before { background: var(--mint); }
+.stat-card-link[data-category="yimei"]::before { background: var(--lavender); }
+.member-tag { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600; margin-left:8px; vertical-align:middle; }
+.tag-banyongjiu { background:#E8F5EF; color:#5E8A6E; }
+.tag-yimei { background:#F0EBF8; color:#7B68A0; }
+.category-options { display:flex; gap:12px; flex-wrap:wrap; }
+.category-option { flex:1; min-width:120px; display:flex; align-items:center; gap:8px; padding:12px 14px; border:1.5px solid var(--border); border-radius:14px; cursor:pointer; background:var(--bg); transition:all .25s; -webkit-tap-highlight-color:transparent; }
+.category-option input { width:18px; height:18px; accent-color:var(--primary-dark); flex-shrink:0; }
+.category-option span { font-size:14px; color:var(--text); }
+.category-option:hover { border-color:var(--primary); }
+.category-option:has(input:checked) { border-color:var(--primary-dark); background:#FFF5EC; }
+
+/* ──── 日历 ──── */
+.calendar-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+.calendar-header-cell { text-align: center; padding: 12px 6px; font-size: 13px; color: var(--text-muted); font-weight: 600; }
+.calendar-cell {
+  min-height: 96px; border: 1.5px solid var(--border); padding: 8px;
+  background: #fff; border-radius: 14px; cursor: pointer;
+  transition: all .25s; overflow: hidden;
+}
+.calendar-cell:hover { background: #FFF5EC; border-color: var(--primary); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(212,167,139,.1); }
+.calendar-cell.other-month { opacity: .3; background: #FDF9F5; }
+.calendar-cell.today { border-color: var(--primary); border-width: 2px; background: linear-gradient(135deg,#FFF5EC,#FDF0F3); }
+.calendar-day-num { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.calendar-event {
+  font-size: 11px; background: linear-gradient(135deg,#F0D5C3,#FDE8EA);
+  color: #5C3D2E; padding: 3px 8px; border-radius: 8px;
+  margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500;
+}
+.calendar-event.starred { background: linear-gradient(135deg,var(--peach),#E8B878); color: #fff; }
+.calendar-event.task { background: linear-gradient(135deg,var(--mint),#8FB89A); color: #fff; }
+.calendar-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.calendar-nav .month-label { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: 1px; }
+
+/* ──── 任务项 ──── */
+.task-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border-bottom: 1px solid rgba(240,225,211,.5);
+  transition: all .2s; border-radius: 10px;
+}
+.task-item:hover { background: #FFFCF9; }
+.task-checkbox {
+  width: 22px; height: 22px; border: 2px solid var(--border);
+  border-radius: 8px; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+  transition: all .25s;
+}
+.task-checkbox.checked { background: linear-gradient(135deg,#8FB89A,#7CA88A); border-color: #8FB89A; }
+.task-checkbox.checked::after { content: '✓'; color: #fff; font-size: 14px; font-weight: bold; }
+.task-text { flex:1; font-size: 14px; }
+.task-text.done { text-decoration: line-through; color: var(--text-muted); }
+.task-fixed-tag { font-size: 11px; background: #F0EBF8; color: #7B68A0; padding: 3px 10px; border-radius: 10px; font-weight: 500; }
+
+/* ──── Tab ──── */
+.tab-bar { display: flex; gap: 6px; margin-bottom: 20px; border-bottom: 1.5px solid var(--border); }
+.tab-item {
+  padding: 12px 22px; cursor: pointer; font-size: 14px;
+  color: var(--text-muted); border-bottom: 2.5px solid transparent;
+  transition: all .25s; font-weight: 500; border-radius: 10px 10px 0 0;
+}
+.tab-item:hover { color: var(--text-light); background: rgba(255,245,236,.4); }
+.tab-item.active { color: var(--primary-dark); border-bottom-color: var(--primary); font-weight: 600; }
+
+/* ──── 饮食 ──── */
+.meal-section { margin-bottom: 18px; }
+.meal-label { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.meal-input {
+  width: 100%; padding: 14px 18px; border: 1.5px solid var(--border);
+  border-radius: 16px; font-size: 14px; background: var(--bg);
+  font-family: inherit; color: var(--text); min-height: 52px; transition: all .25s;
+}
+.meal-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(212,167,139,.08); background: #fff; }
+
+/* ──── 空状态 ──── */
+.empty-state { text-align: center; padding: 48px 20px; color: var(--text-muted); }
+.empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; opacity: .35; display: inline-block; animation: float 3s ease-in-out infinite; }
+.empty-state p { font-size: 14px; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ──── 模态框 ──── */
+.modal-overlay {
+  display: none; position: fixed; top:0; left:0; right:0; bottom:0;
+  background: rgba(92,61,46,.35); backdrop-filter: blur(4px);
+  z-index: 2000; align-items: center; justify-content: center; padding: 20px;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: #fff; border-radius: 28px; width: 100%; max-width: 580px;
+  max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 16px 48px rgba(92,61,46,.15);
+  animation: modalIn .3s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-header {
+  padding: 22px 28px; border-bottom: 1.5px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  background: linear-gradient(180deg,#FFF5EC,#fff);
+  border-radius: 28px 28px 0 0;
+}
+.modal-header h3 { font-size: 18px; color: var(--text); font-weight: 600; }
+.modal-close {
+  background: #FFF0E7; border: none; font-size: 20px; color: var(--text-muted);
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+  transition: all .2s; display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: #FDE8EA; color: #D4958A; }
+.modal-body { padding: 28px; }
+.modal-footer {
+  padding: 18px 28px; border-top: 1.5px solid var(--border);
+  display: flex; justify-content: flex-end; gap: 12px;
+  background: var(--bg); border-radius: 0 0 28px 28px;
+}
+
+/* ──── 日期选择行 ──── */
+.date-picker-row { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+
+/* ──── Toast ──── */
+.toast {
+  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg,#5C3D2E,#3D2820); color: #fff;
+  padding: 14px 32px; border-radius: 24px; font-size: 14px;
+  z-index: 3000; opacity: 0; transition: opacity .3s;
+  pointer-events: none; box-shadow: 0 8px 24px rgba(92,61,46,.25);
+}
+.toast.show { opacity: .95; }
+
+/* ──── 滚动条 ──── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#F0D5C3,var(--pink)); border-radius: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ──── 其他组件 ──── */
+.deduct-record {
+  background: #FFFCF9; border-radius: 14px; padding: 12px 16px;
+  margin-bottom: 8px; font-size: 13px; display: flex;
+  justify-content: space-between; align-items: center;
+  border: 1px solid rgba(240,225,211,.5);
+}
+.member-detail-panel { display: none; padding: 16px; background: var(--bg); border-radius: 14px; margin-top: 10px; }
+.member-detail-panel.show { display: block; }
+.member-progress { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 4px; }
+.member-progress-fill { height: 100%; background: linear-gradient(90deg,var(--mint),#8FB89A); border-radius: 4px; transition: width .5s ease; }
+.publish-record {
+  font-size: 12px; color: var(--text-light); margin-top: 8px;
+  padding: 8px 12px; background: rgba(212,167,139,.06);
+  border-radius: 10px; border: 1px dashed rgba(240,225,211,.6);
+}
+
+/* ──── 汉堡按钮 ──── */
+.menu-toggle {
+  display: none; position: fixed; top: 14px; left: 14px;
+  z-index: 2000; background: #fff; border: 1.5px solid var(--border);
+  border-radius: 14px; width: 42px; height: 42px;
+  font-size: 20px; color: var(--primary-dark); cursor: pointer;
+  box-shadow: 0 2px 12px rgba(212,167,139,.1);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; user-select: none;
+  align-items: center; justify-content: center; display: none;
+}
+
+/* ──── 遮罩 ──── */
+.overlay {
+  display: none; position: fixed; top:0; left:0; right:0; bottom:0;
+  background: rgba(92,61,46,.25); backdrop-filter: blur(2px);
+  z-index: 900; -webkit-tap-highlight-color: transparent;
+}
+
+/* ──── 响应式 ──── */
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); box-shadow: 4px 0 24px rgba(92,61,46,.15); }
+  .menu-toggle { display: flex; }
+  .main-content { margin-left: 0; padding: 60px 16px 32px; }
+  .form-row, .form-row-3 { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .calendar-cell { min-height: 55px; border-radius: 10px; }
+  .calendar-event { font-size: 9px; }
+  .data-table { font-size: 12px; }
+  .data-table th, .data-table td { padding: 8px 10px; }
+  .modal { max-width: 100%; border-radius: 22px 22px 0 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="menu-toggle" id="menuToggle">☰</div>
+<div class="overlay" id="overlay"></div>
+
+<div class="app-container" style="display:flex;min-height:100vh;">
+  <!-- 左侧导航 -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1>五悠工作台</h1>
+      <p>美业全能管理</p>
+    </div>
+    <ul class="nav-list" id="navList">
+      <li class="nav-item active" data-page="booking">
+        <span class="nav-icon">📋</span><span>预约管理</span>
+      </li>
+      <li class="nav-item" data-page="calendar">
+        <span class="nav-icon">📅</span><span>日程日历</span>
+      </li>
+      <li class="nav-item" data-page="income">
+        <span class="nav-icon">💰</span><span>收入记录</span>
+      </li>
+      <li class="nav-item" data-page="member">
+        <span class="nav-icon">👤</span><span>会员管理</span>
+      </li>
+      <li class="nav-item" data-page="plan">
+        <span class="nav-icon">✅</span><span>每日计划</span>
+      </li>
+      <li class="nav-item" data-page="media">
+        <span class="nav-icon">🎬</span><span>自媒体素材库</span>
+      </li>
+      <li class="nav-item" data-page="meal">
+        <span class="nav-icon">🍽</span><span>好好吃饭打卡</span>
+      </li>
+      <li class="nav-item" data-page="weight">
+        <span class="nav-icon">⚖️</span><span>体重记录</span>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <div style="display:flex;gap:6px;margin-bottom:10px;">
+        <button class="btn btn-outline btn-sm" style="flex:1;font-size:12px;" id="btnExport">📤 导出备份</button>
+        <button class="btn btn-outline btn-sm" style="flex:1;font-size:12px;" id="btnImport">📥 导入恢复</button>
+      </div>
+      <div class="sidebar-footer-decoration">🍎 🍏 ✨ 🍎 🍏</div>
+      五悠美业 · 柔系生活
+    </div>
+  </aside>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+
+    <!-- 1. 预约管理 -->
+    <div class="page active" id="page-booking">
+      <div class="page-header">
+        <h2>预约管理</h2>
+        <p>管理客户预约信息，按日期排序，支持归档半永久客户</p>
+      </div>
+      <div style="margin-bottom:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" id="btnNewBooking">＋ 新建预约</button>
+        <div class="booking-tabs">
+          <button class="booking-tab active" data-tab="pending">📅 待到店 <span class="tab-badge" id="bookingPendingCount">0</span></button>
+          <button class="booking-tab" data-tab="done">✅ 已完成 <span class="tab-badge" id="bookingDoneCount">0</span></button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" id="bookingListTitle">📋 预约列表</div>
+        <div id="bookingList"></div>
+      </div>
+    </div>
+
+    <!-- 2. 日程日历 -->
+    <div class="page" id="page-calendar">
+      <div class="page-header">
+        <h2>日程日历</h2>
+        <p>月度可视化视图，自动同步预约，支持手动添加工作事项</p>
+      </div>
+      <div class="card">
+        <div class="calendar-nav">
+          <button class="btn btn-outline btn-sm" id="btnPrevMonth">‹ 上月</button>
+          <span class="month-label" id="calendarMonthLabel"></span>
+          <button class="btn btn-outline btn-sm" id="btnNextMonth">下月 ›</button>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-bottom:12px;">
+          <button class="btn btn-primary btn-sm" id="btnAddTask">＋ 添加工作事项</button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </div>
+    </div>
+
+    <!-- 3. 收入记录 -->
+    <div class="page" id="page-income">
+      <div class="page-header">
+        <h2>收入记录</h2>
+        <p>区分单次消费与充值流水，自动统计当日/当月收入</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">当日总收入</div><div class="stat-value" id="todayIncome">0<span class="stat-unit">元</span></div></div>
+        <div class="stat-card"><div class="stat-label">当月总收入</div><div class="stat-value" id="monthIncome">0<span class="stat-unit">元</span></div></div>
+        <div class="stat-card"><div class="stat-label">单次消费总额</div><div class="stat-value" id="consumeTotal">0<span class="stat-unit">元</span></div></div>
+        <div class="stat-card"><div class="stat-label">充值总额</div><div class="stat-value" id="rechargeTotal">0<span class="stat-unit">元</span></div></div>
+      </div>
+      <div style="margin-bottom:20px;">
+        <button class="btn btn-primary" id="btnNewIncome">＋ 新增收入记录</button>
+      </div>
+      <div class="card">
+        <div class="card-title">💰 收入流水</div>
+        <div id="incomeList"></div>
+      </div>
+    </div>
+
+    <!-- 4. 会员管理 -->
+    <div class="page" id="page-member">
+      <div class="page-header">
+        <h2>会员管理</h2>
+        <p>核心私域板块，管理客户档案、扣卡明细、审美偏好</p>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:20px;flex-wrap:wrap;">
+        <button class="btn btn-primary" id="btnNewMember">＋ 新建会员档案</button>
+        <input type="text" id="memberSearch" class="meal-input" style="width:220px;max-width:60%;padding:8px 16px;" placeholder="🔍 搜索客户姓名...">
+      </div>
+      <div class="stat-grid" id="memberStats"></div>
+      <div class="card">
+        <div class="card-title" id="memberListTitle" style="justify-content:space-between;flex-wrap:wrap;gap:10px;"><span>👤 会员档案列表</span></div>
+        <div id="memberList"></div>
+      </div>
+    </div>
+
+    <!-- 5. 每日计划 -->
+    <div class="page" id="page-plan">
+      <div class="page-header">
+        <h2>每日计划</h2>
+        <p>当日任务清单，勾选完成，支持固定任务保留</p>
+      </div>
+      <div class="date-picker-row">
+        <input type="date" id="planDate" class="meal-input" style="width:auto;">
+        <button class="btn btn-primary btn-sm" id="btnAddPlan">＋ 添加任务</button>
+        <button class="btn btn-outline btn-sm" id="btnResetPlan">重置当日清单</button>
+      </div>
+      <div class="card">
+        <div class="card-title" id="planTitle">✅ 今日任务</div>
+        <div id="planList"></div>
+      </div>
+    </div>
+
+    <!-- 6. 自媒体素材库 -->
+    <div class="page" id="page-media">
+      <div class="page-header">
+        <h2>自媒体素材库</h2>
+        <p>两大内容系列素材管理，抖音/小红书发布记录</p>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item active" id="mediaTabYoung">《日常原生改造》年轻女生赛道</div>
+        <div class="tab-item" id="mediaTabMom">《淡颜好气色》中年宝妈赛道</div>
+      </div>
+      <div style="margin-bottom:20px;">
+        <button class="btn btn-primary" id="btnNewMedia">＋ 新增素材</button>
+      </div>
+      <div class="card">
+        <div class="card-title" id="mediaListTitle">🎬 素材列表</div>
+        <div id="mediaList"></div>
+      </div>
+    </div>
+
+    <!-- 7. 好好吃饭打卡 -->
+    <div class="page" id="page-meal">
+      <div class="page-header">
+        <h2>好好吃饭打卡</h2>
+        <p>每日饮食记录，按日期归档保存</p>
+      </div>
+      <div class="date-picker-row">
+        <input type="date" id="mealDate" class="meal-input" style="width:auto;">
+      </div>
+      <div class="card">
+        <div class="meal-section"><div class="meal-label">🌅 早餐</div><textarea class="meal-input" id="mealBreakfast" placeholder="记录早餐..."></textarea></div>
+        <div class="meal-section"><div class="meal-label">☀️ 午餐</div><textarea class="meal-input" id="mealLunch" placeholder="记录午餐..."></textarea></div>
+        <div class="meal-section"><div class="meal-label">🌙 晚餐</div><textarea class="meal-input" id="mealDinner" placeholder="记录晚餐..."></textarea></div>
+        <div class="meal-section"><div class="meal-label">🍪 加餐</div><textarea class="meal-input" id="mealSnack" placeholder="记录加餐..."></textarea></div>
+      </div>
+      <div class="card">
+        <div class="card-title">📖 历史饮食记录</div>
+        <div id="mealHistory"></div>
+      </div>
+    </div>
+
+    <!-- 8. 体重记录 -->
+    <div class="page" id="page-weight">
+      <div class="page-header">
+        <h2>体重记录</h2>
+        <p>持续追踪身体状态，自动汇总历史数据</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">最新体重</div><div class="stat-value" id="latestWeight">—<span class="stat-unit">kg</span></div></div>
+        <div class="stat-card"><div class="stat-label">本期最高</div><div class="stat-value" id="maxWeight">—<span class="stat-unit">kg</span></div></div>
+        <div class="stat-card"><div class="stat-label">本期最低</div><div class="stat-value" id="minWeight">—<span class="stat-unit">kg</span></div></div>
+        <div class="stat-card"><div class="stat-label">记录总数</div><div class="stat-value" id="weightCount">0<span class="stat-unit">条</span></div></div>
+      </div>
+      <div style="margin-bottom:20px;">
+        <button class="btn btn-primary" id="btnNewWeight">＋ 记录体重</button>
+      </div>
+      <div class="card">
+        <div class="card-title">📈 体重趋势</div>
+        <canvas class="weight-chart" id="weightChart"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">📋 体重台账</div>
+        <div id="weightList"></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- 模态框 -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">标题</h3>
+      <button class="modal-close" id="modalClose">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== 数据存储 =====
+const STORE_KEY = 'wuyou_workbench_v2';
+
+function loadData() {
+  try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch(e) { return {}; }
+}
+function saveData(data) { localStorage.setItem(STORE_KEY, JSON.stringify(data)); }
+function getKey(key, def) { const d = loadData(); return d[key] !== undefined ? d[key] : def; }
+function setKey(key, val) { const d = loadData(); d[key] = val; saveData(d); }
+
+// ===== 工具 =====
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+}
+function todayStr() {
+  var d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function uid() { return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function esc(str) {
+  if (str === null || str === undefined) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ===== 侧边栏 =====
+(function(){
+  var sidebar = document.getElementById('sidebar');
+  var overlay = document.getElementById('overlay');
+  var toggle = document.getElementById('menuToggle');
+
+  toggle.addEventListener('click', function(e){
+    e.preventDefault(); e.stopPropagation();
+    sidebar.classList.toggle('open');
+    if (sidebar.classList.contains('open')) {
+      overlay.style.display = 'block';
+    } else {
+      overlay.style.display = 'none';
+    }
+  });
+
+  overlay.addEventListener('click', function(){
+    sidebar.classList.remove('open');
+    overlay.style.display = 'none';
+  });
+})();
+
+// ===== 页面切换 =====
+function switchPage(page) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(function(n){ n.classList.remove('active'); });
+  var target = document.querySelector('.nav-item[data-page="'+page+'"]');
+  if (target) target.classList.add('active');
+
+  // 关闭移动端侧边栏
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').style.display = 'none';
+
+  // 渲染
+  if (page === 'booking') renderBooking();
+  if (page === 'calendar') renderCalendar();
+  if (page === 'income') renderIncome();
+  if (page === 'member') renderMember();
+  if (page === 'plan') renderPlan();
+  if (page === 'media') renderMedia();
+  if (page === 'meal') renderMeal();
+  if (page === 'weight') renderWeight();
+}
+
+// 给导航项绑定事件
+document.querySelectorAll('.nav-item').forEach(function(item){
+  item.addEventListener('click', function(e){
+    e.preventDefault();
+    var page = this.getAttribute('data-page');
+    if (page) switchPage(page);
+  });
+});
+
+// ===== 模态框 =====
+var modalState = {};
+
+function openModal(title, bodyHtml, footerHtml, onSave) {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalBody').innerHTML = bodyHtml;
+  document.getElementById('modalFooter').innerHTML = footerHtml;
+  document.getElementById('modalOverlay').classList.add('show');
+  modalState.onSave = onSave;
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', function(e){
+  if (e.target === this) closeModal();
+});
+
+// ========== 1. 预约管理 ==========
+function getBookings() { return getKey('bookings', []); }
+function setBookings(arr) { setKey('bookings', arr); }
+
+var bookingCurrentTab = 'pending';
+
+function renderBooking() {
+  var list = getBookings();
+  list.sort(function(a,b){ return (a.date+' '+a.time).localeCompare(b.date+' '+b.time); });
+  // 统计数量
+  var pendingList = list.filter(function(b){ return b.status==='pending' || !b.status; });
+  var doneList = list.filter(function(b){ return b.status==='arrived' || b.status==='cancel'; });
+  document.getElementById('bookingPendingCount').textContent = pendingList.length;
+  document.getElementById('bookingDoneCount').textContent = doneList.length;
+  // Tab 状态
+  var tabs = document.querySelectorAll('.booking-tab');
+  tabs.forEach(function(t){
+    if (t.getAttribute('data-tab') === bookingCurrentTab) t.classList.add('active');
+    else t.classList.remove('active');
+  });
+  // 当前显示的列表
+  var showList = bookingCurrentTab === 'pending' ? pendingList : doneList;
+  var titleMap = { pending: '📅 待到店预约', done: '✅ 已完成预约（已到店/取消）' };
+  document.getElementById('bookingListTitle').textContent = titleMap[bookingCurrentTab];
+
+  var container = document.getElementById('bookingList');
+  if (showList.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">'+(bookingCurrentTab==='pending'?'📅':'✅')+'</div><p>'+(bookingCurrentTab==='pending'?'暂无待到店预约，点击「新建预约」添加':'暂无已完成预约')+'</p></div>';
+    return;
+  }
+  var statusMap = {'pending':'待到店','arrived':'已到店','cancel':'取消预约'};
+  var statusClass = {'pending':'status-pending','arrived':'status-arrived','cancel':'status-cancel'};
+  // 待到店按日期升序；已完成按日期降序（最新的在最上面）
+  if (bookingCurrentTab === 'done') {
+    showList = showList.slice().sort(function(a,b){ return (b.date+' '+b.time).localeCompare(a.date+' '+a.time); });
+  }
+  var html = '<table class="data-table"><thead><tr><th>客人姓名</th><th>服务项目</th><th>预约日期</th><th>预约时间</th><th>客户备注</th><th>状态</th><th>操作</th></tr></thead><tbody>';
+  showList.forEach(function(b){
+    var rowCls = (bookingCurrentTab === 'done') ? ' class="booking-row-done"' : '';
+    html += '<tr'+rowCls+'><td>'+esc(b.name)+'</td><td>'+esc(b.service)+'</td><td>'+esc(b.date)+'</td><td>'+esc(b.time)+'</td><td>'+esc(b.note||'-')+'</td><td><span class="status-tag '+statusClass[b.status||'pending']+'">'+statusMap[b.status||'pending']+'</span></td><td class="actions"><button class="btn btn-outline btn-sm edit-booking" data-id="'+b.id+'">编辑</button> <button class="btn btn-danger btn-sm del-booking" data-id="'+b.id+'">删除</button></td></tr>';
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function openBookingModal(id) {
+  var bookings = getBookings();
+  var b = id ? bookings.find(function(x){ return x.id===id; }) : {};
+  var body = '<div class="form-group"><label>客人姓名</label><input id="bk_name" value="'+esc(b.name||'')+'" placeholder="请输入客人姓名"></div>'+
+    '<div class="form-group"><label>服务项目</label><input id="bk_service" value="'+esc(b.service||'')+'" placeholder="如：原生眉改造 / 淡颜气色妆"></div>'+
+    '<div class="form-row"><div class="form-group"><label>预约日期</label><input type="date" id="bk_date" value="'+(b.date||todayStr())+'"></div><div class="form-group"><label>预约时间</label><input type="time" id="bk_time" value="'+(b.time||'10:00')+'"></div></div>'+
+    '<div class="form-group"><label>客户备注</label><textarea id="bk_note" placeholder="特殊需求、注意事项...">'+esc(b.note||'')+'</textarea></div>'+
+    '<div class="form-group"><label>预约状态</label><select id="bk_status"><option value="pending"'+(b.status==='pending'?' selected':'')+'>待到店</option><option value="arrived"'+(b.status==='arrived'?' selected':'')+'>已到店</option><option value="cancel"'+(b.status==='cancel'?' selected':'')+'>取消预约</option></select></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">取消</button> <button class="btn btn-primary" id="btnSaveBooking">保存</button>';
+  openModal(id?'编辑预约':'新建预约', body, footer);
+  document.getElementById('btnSaveBooking').addEventListener('click', function(){
+    saveBooking(id||'');
+  });
+}
+
+function saveBooking(id) {
+  var data = {
+    id: id || uid(),
+    name: document.getElementById('bk_name').value.trim(),
+    service: document.getElementById('bk_service').value.trim(),
+    date: document.getElementById('bk_date').value,
+    time: document.getElementById('bk_time').value,
+    note: document.getElementById('bk_note').value.trim(),
+    status: document.getElementById('bk_status').value
+  };
+  if (!data.name || !data.service || !data.date) { showToast('请填写姓名、项目和日期'); return; }
+  var list = getBookings();
+  var idx = list.findIndex(function(x){ return x.id===id; });
+  if (idx>=0) list[idx]=data; else list.push(data);
+  setBookings(list);
+  closeModal();
+  renderBooking();
+  showToast('预约保存成功');
+}
+
+document.getElementById('btnNewBooking').addEventListener('click', function(){ openBookingModal(); });
+document.getElementById('bookingList').addEventListener('click', function(e){
+  var t = e.target;
+  if (t.classList.contains('edit-booking')) { openBookingModal(t.getAttribute('data-id')); }
+  if (t.classList.contains('del-booking')) {
+    if (!confirm('确认删除？')) return;
+    var id = t.getAttribute('data-id');
+    var list = getBookings().filter(function(x){ return x.id!==id; });
+    setBookings(list); renderBooking(); showToast('已删除');
+  }
+});
+
+document.querySelectorAll('.booking-tab').forEach(function(tab){
+  tab.addEventListener('click', function(){
+    bookingCurrentTab = this.getAttribute('data-tab');
+    renderBooking();
+  });
+});
+
+// ========== 2. 日程日历 ==========
+var calCurrentDate = new Date();
+
+function getTasks() { return getKey('tasks', []); }
+function setTasks(arr) { setKey('tasks', arr); }
+
+function renderCalendar() {
+  var year = calCurrentDate.getFullYear();
+  var month = calCurrentDate.getMonth();
+  document.getElementById('calendarMonthLabel').textContent = year+'年'+(month+1)+'月';
+
+  var firstDay = new Date(year,month,1);
+  var lastDay = new Date(year,month+1,0);
+  var startWeekday = firstDay.getDay();
+  var daysInMonth = lastDay.getDate();
+  var prevMonthDays = new Date(year,month,0).getDate();
+
+  var bookings = getBookings();
+  var tasks = getTasks();
+
+  var html = '';
+  var weekDays = ['日','一','二','三','四','五','六'];
+  weekDays.forEach(function(d){ html += '<div class="calendar-header-cell">'+d+'</div>'; });
+
+  for (var i=startWeekday-1;i>=0;i--) {
+    html += '<div class="calendar-cell other-month"><div class="calendar-day-num">'+(prevMonthDays-i)+'</div></div>';
+  }
+
+  var today = todayStr();
+  for (var d=1;d<=daysInMonth;d++) {
+    var dateStr = year+'-'+String(month+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    var dayBookings = bookings.filter(function(b){ return b.date===dateStr && b.status!=='cancel'; });
+    var dayTasks = tasks.filter(function(t){ return t.date===dateStr; });
+    var cls = 'calendar-cell';
+    if (dateStr===today) cls += ' today';
+    if (dayBookings.length||dayTasks.length) cls += ' has-event';
+    html += '<div class="'+cls+'" data-date="'+dateStr+'"><div class="calendar-day-num">'+d+(dayTasks.some(function(t){return t.starred;})?' ⭐':'')+'</div>';
+    dayBookings.slice(0,3).forEach(function(b){
+      html += '<div class="calendar-event">'+esc(b.time)+' '+esc(b.name)+'</div>';
+    });
+    dayTasks.slice(0,2).forEach(function(t){
+      html += '<div class="calendar-event '+(t.starred?'starred':'task')+'">'+esc(t.title)+'</div>';
+    });
+    if (dayBookings.length+dayTasks.length>5) {
+      html += '<div class="calendar-event" style="text-align:center;">共'+(dayBookings.length+dayTasks.length)+'条</div>';
+    }
+    html += '</div>';
+  }
+
+  var totalCells = startWeekday+daysInMonth;
+  var remaining = (7-(totalCells%7))%7;
+  for (var j=1;j<=remaining;j++) {
+    html += '<div class="calendar-cell other-month"><div class="calendar-day-num">'+j+'</div></div>';
+  }
+
+  document.getElementById('calendarGrid').innerHTML = html;
+}
+
+document.getElementById('calendarGrid').addEventListener('click', function(e){
+  var cell = e.target.closest('.calendar-cell');
+  if (!cell) return;
+  var dateStr = cell.getAttribute('data-date');
+  if (!dateStr) return;
+  openDayDetail(dateStr);
+});
+
+function openDayDetail(dateStr) {
+  var bookings = getBookings().filter(function(b){ return b.date===dateStr; });
+  var tasks = getTasks().filter(function(t){ return t.date===dateStr; });
+  var body = '<p style="margin-bottom:16px;color:var(--text-muted)">'+dateStr+' 日程详情</p>';
+  if (bookings.length===0 && tasks.length===0) {
+    body += '<div class="empty-state"><p>当天暂无安排</p></div>';
+  } else {
+    body += '<div class="card-title">📋 预约</div>';
+    if (bookings.length===0) body += '<p style="color:var(--text-muted);margin-bottom:16px;">无</p>';
+    bookings.forEach(function(b){
+      body += '<div class="deduct-record"><span>'+esc(b.time)+' '+esc(b.name)+' - '+esc(b.service)+'</span></div>';
+    });
+    body += '<div class="card-title" style="margin-top:16px;">📌 工作事项</div>';
+    if (tasks.length===0) body += '<p style="color:var(--text-muted);">无</p>';
+    tasks.forEach(function(t){
+      body += '<div class="deduct-record"><span>'+(t.starred?'⭐ ':'')+esc(t.title)+'</span><button class="btn btn-danger btn-sm del-task-btn" data-id="'+t.id+'" data-date="'+dateStr+'">删除</button></div>';
+    });
+  }
+  body += '<div style="margin-top:16px;text-align:right;"><button class="btn btn-primary btn-sm" id="btnAddDayTask">＋ 添加事项</button></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">关闭</button>';
+  openModal(dateStr+' 日程', body, footer);
+
+  var btnAdd = document.getElementById('btnAddDayTask');
+  if (btnAdd) btnAdd.addEventListener('click', function(){ closeModal(); openTaskModal(dateStr); });
+
+  document.querySelectorAll('.del-task-btn').forEach(function(b){
+    b.addEventListener('click', function(){
+      var tid = this.getAttribute('data-id');
+      var d = this.getAttribute('data-date');
+      var list = getTasks().filter(function(x){ return x.id!==tid; });
+      setTasks(list); closeModal(); renderCalendar(); openDayDetail(d);
+    });
+  });
+}
+
+function openTaskModal(dateStr) {
+  var body = '<div class="form-group"><label>事项标题</label><input id="task_title" placeholder="如：短视频拍摄 / 客户回访"></div>'+
+    '<div class="form-row"><div class="form-group"><label>日期</label><input type="date" id="task_date" value="'+(dateStr||todayStr())+'"></div><div class="form-group"><label>标星提醒</label><select id="task_star"><option value="0">否</option><option value="1">是 ⭐</option></select></div></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">取消</button> <button class="btn btn-primary" id="btnSaveTask">保存</button>';
+  openModal('添加工作事项', body, footer);
+  document.getElementById('btnSaveTask').addEventListener('click', function(){
+    var task = {
+      id: uid(),
+      title: document.getElementById('task_title').value.trim(),
+      date: document.getElementById('task_date').value,
+      starred: document.getElementById('task_star').value==='1'
+    };
+    if (!task.title||!task.date) { showToast('请填写标题和日期'); return; }
+    var list = getTasks(); list.push(task); setTasks(list);
+    closeModal(); renderCalendar(); showToast('事项已添加');
+  });
+}
+
+document.getElementById('btnPrevMonth').addEventListener('click', function(){ calCurrentDate.setMonth(calCurrentDate.getMonth()-1); renderCalendar(); });
+document.getElementById('btnNextMonth').addEventListener('click', function(){ calCurrentDate.setMonth(calCurrentDate.getMonth()+1); renderCalendar(); });
+document.getElementById('btnAddTask').addEventListener('click', function(){ openTaskModal(); });
+
+// ========== 3. 收入记录 ==========
+function getIncomes() { return getKey('incomes', []); }
+function setIncomes(arr) { setKey('incomes', arr); }
+
+function renderIncome() {
+  var list = getIncomes();
+  var today = todayStr();
+  var now = new Date();
+  var monthStr = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+
+  var todayTotal=0, monthTotal=0, consumeTotal=0, rechargeTotal=0;
+  list.forEach(function(r){
+    var amt = parseFloat(r.amount)||0;
+    if (r.date===today) todayTotal+=amt;
+    if (r.date.startsWith(monthStr)) monthTotal+=amt;
+    if (r.type==='consume') consumeTotal+=amt;
+    if (r.type==='recharge') rechargeTotal+=amt;
+  });
+  document.getElementById('todayIncome').innerHTML = todayTotal.toFixed(0)+'<span class="stat-unit">元</span>';
+  document.getElementById('monthIncome').innerHTML = monthTotal.toFixed(0)+'<span class="stat-unit">元</span>';
+  document.getElementById('consumeTotal').innerHTML = consumeTotal.toFixed(0)+'<span class="stat-unit">元</span>';
+  document.getElementById('rechargeTotal').innerHTML = rechargeTotal.toFixed(0)+'<span class="stat-unit">元</span>';
+
+  var container = document.getElementById('incomeList');
+  if (list.length===0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">💰</div><p>暂无收入记录</p></div>';
+    return;
+  }
+  list.sort(function(a,b){ return (b.date+' '+b.id).localeCompare(a.date+' '+a.id); });
+  var typeMap = {'consume':'单次消费','recharge':'充值'};
+  var html = '<table class="data-table"><thead><tr><th>客户姓名</th><th>消费项目</th><th>类型</th><th>金额</th><th>充值金额</th><th>交易日期</th><th>备注</th><th>操作</th></tr></thead><tbody>';
+  list.forEach(function(r){
+    html += '<tr><td>'+esc(r.name)+'</td><td>'+esc(r.item)+'</td><td><span class="status-tag '+(r.type==='consume'?'status-arrived':'status-pub')+'">'+typeMap[r.type]+'</span></td><td>'+(r.type==='consume'?'¥'+esc(r.amount):'-')+'</td><td>'+(r.type==='recharge'?'¥'+esc(r.amount):'-')+'</td><td>'+esc(r.date)+'</td><td>'+esc(r.note||'-')+'</td><td class="actions"><button class="btn btn-outline btn-sm edit-income" data-id="'+r.id+'">编辑</button> <button class="btn btn-danger btn-sm del-income" data-id="'+r.id+'">删除</button></td></tr>';
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function openIncomeModal(id) {
+  var list = getIncomes();
+  var r = id ? list.find(function(x){ return x.id===id; }) : {};
+  var body = '<div class="form-group"><label>客户姓名</label><input id="in_name" value="'+esc(r.name||'')+'" placeholder="客户姓名"></div>'+
+    '<div class="form-group"><label>消费项目</label><input id="in_item" value="'+esc(r.item||'')+'" placeholder="如：原生眉改造 / 充值会员卡"></div>'+
+    '<div class="form-group"><label>流水类型</label><select id="in_type"><option value="consume"'+(r.type==='consume'?' selected':'')+'>单次消费</option><option value="recharge"'+(r.type==='recharge'?' selected':'')+'>充值</option></select></div>'+
+    '<div class="form-group"><label>金额（元）</label><input type="number" step="0.01" id="in_amount" value="'+(r.amount||'')+'" placeholder="金额"></div>'+
+    '<div class="form-group"><label>交易日期</label><input type="date" id="in_date" value="'+(r.date||todayStr())+'"></div>'+
+    '<div class="form-group"><label>备注</label><textarea id="in_note" placeholder="备注...">'+esc(r.note||'')+'</textarea></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">取消</button> <button class="btn btn-primary" id="btnSaveIncome">保存</button>';
+  openModal(id?'编辑收入':'新增收入记录', body, footer);
+  document.getElementById('btnSaveIncome').addEventListener('click', function(){ saveIncome(id||''); });
+}
+
+function saveIncome(id) {
+  var data = {
+    id: id||uid(),
+    name: document.getElementById('in_name').value.trim(),
+    item: document.getElementById('in_item').value.trim(),
+    type: document.getElementById('in_type').value,
+    amount: document.getElementById('in_amount').value,
+    date: document.getElementById('in_date').value,
+    note: document.getElementById('in_note').value.trim()
+  };
+  if (!data.name||!data.item||!data.amount||!data.date) { showToast('请填写完整信息'); return; }
+  var list = getIncomes();
+  var idx = list.findIndex(function(x){ return x.id===id; });
+  if (idx>=0) list[idx]=data; else list.push(data);
+  setIncomes(list); closeModal(); renderIncome(); showToast('收入记录已保存');
+}
+
+document.getElementById('btnNewIncome').addEventListener('click', function(){ openIncomeModal(); });
+document.getElementById('incomeList').addEventListener('click', function(e){
+  var t = e.target;
+  if (t.classList.contains('edit-income')) openIncomeModal(t.getAttribute('data-id'));
+  if (t.classList.contains('del-income')) {
+    if (!confirm('确认删除？')) return;
+    var list = getIncomes().filter(function(x){ return x.id!==t.getAttribute('data-id'); });
+    setIncomes(list); renderIncome(); showToast('已删除');
+  }
+});
+
+// ========== 4. 会员管理 ==========
+function getMembers() { return getKey('members', []); }
+function setMembers(arr) { setKey('members', arr); }
+
+var memberCategoryFilter = 'all';
+
+function renderMember() {
+  var list = getMembers();
+  var searchVal = (document.getElementById('memberSearch').value||'').trim().toLowerCase();
+
+  // 统计
+  var totalMembers = list.length;
+  var totalRecharge = list.reduce(function(s,m){ return s + (parseFloat(m.totalAmount)||0); }, 0);
+  var bjCount = list.filter(function(m){ return m.category==='banyongjiu'; }).length;
+  var ymCount = list.filter(function(m){ return m.category==='yimei'; }).length;
+  var statsHtml = '<div class="stat-card"><div class="stat-label">会员总数</div><div class="stat-value">'+totalMembers+'<span class="stat-unit">人</span></div></div>'+
+    '<div class="stat-card"><div class="stat-label">累计充值</div><div class="stat-value">¥'+totalRecharge.toFixed(0)+'<span class="stat-unit">元</span></div></div>'+
+    '<div class="stat-card stat-card-link" data-category="banyongjiu"><div class="stat-label">半永久客人</div><div class="stat-value">'+bjCount+'<span class="stat-unit">人</span></div></div>'+
+    '<div class="stat-card stat-card-link" data-category="yimei"><div class="stat-label">医美客人</div><div class="stat-value">'+ymCount+'<span class="stat-unit">人</span></div></div>';
+  document.getElementById('memberStats').innerHTML = statsHtml;
+
+  // 先按分类过滤
+  var filtered = list;
+  if (memberCategoryFilter !== 'all') {
+    filtered = filtered.filter(function(m){ return m.category===memberCategoryFilter; });
+  }
+  // 再按搜索过滤
+  if (searchVal) {
+    filtered = filtered.filter(function(m){
+      return (m.name||'').toLowerCase().indexOf(searchVal) >= 0 ||
+             (m.phone||'').indexOf(searchVal) >= 0 ||
+             (m.rechargeItem||'').toLowerCase().indexOf(searchVal) >= 0;
+    });
+  }
+
+  // 列表标题
+  var titleMap = { all: '👤 会员档案列表', banyongjiu: '🎨 半永久客人', yimei: '💉 医美客人' };
+  var titleHtml = '<span>'+titleMap[memberCategoryFilter]+'</span>';
+  if (memberCategoryFilter !== 'all') {
+    titleHtml += '<button class="btn btn-outline btn-sm" id="btnResetMemberCategory">← 返回全部</button>';
+  }
+  document.getElementById('memberListTitle').innerHTML = titleHtml;
+
+  var container = document.getElementById('memberList');
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">👤</div><p>'+(searchVal?'未找到匹配「'+esc(searchVal)+'」的客户':'该分类暂无会员档案，点击「新建会员档案」添加')+'</p></div>';
+    return;
+  }
+  var html = '';
+  filtered.forEach(function(m){
+    var remainPercent = m.totalCount>0?(m.remainCount/m.totalCount*100).toFixed(0):0;
+    var usedCount = (m.totalCount||0) - (m.remainCount||0);
+    var catLabel = m.category==='yimei'?'<span class="member-tag tag-yimei">医美</span>':'<span class="member-tag tag-banyongjiu">半永久</span>';
+
+    // 汇总做过哪些项目（从扣卡明细）
+    var deductions = m.deductions || [];
+    var projectSummary = {};
+    deductions.forEach(function(d){
+      if (!projectSummary[d.item]) projectSummary[d.item] = 0;
+      projectSummary[d.item] += (d.count||1);
+    });
+    var projectHtml = '';
+    var projectKeys = Object.keys(projectSummary);
+    if (projectKeys.length > 0) {
+      projectHtml = '<div style="margin-top:10px;font-size:13px;color:var(--text-light);"><strong>📋 已做项目：</strong>';
+      projectKeys.forEach(function(k, i){
+        projectHtml += (i>0?'、':'')+'<span style="background:rgba(212,167,139,0.1);padding:2px 8px;border-radius:8px;margin:2px;display:inline-block;">'+esc(k)+' ×'+projectSummary[k]+'次</span>';
+      });
+      projectHtml += '</div>';
+    } else {
+      projectHtml = '<div style="margin-top:10px;font-size:13px;color:var(--text-muted);">📋 暂无消费项目记录</div>';
+    }
+
+    html += '<div class="card" style="margin-bottom:12px;">'+
+      '<div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:8px;">'+
+      '<div><strong style="font-size:16px;">'+esc(m.name)+'</strong>'+catLabel+'<span style="color:var(--text-muted);margin-left:8px;">'+esc(m.phone||'')+'</span></div>'+
+      '<div class="actions"><button class="btn btn-outline btn-sm toggle-detail" data-id="'+m.id+'">扣卡明细</button> <button class="btn btn-outline btn-sm edit-member" data-id="'+m.id+'">编辑</button> <button class="btn btn-danger btn-sm del-member" data-id="'+m.id+'">删除</button></div>'+
+      '</div>'+
+      '<div style="margin-top:12px;display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--text-light);">'+
+      '<span>💳 充值项目：'+esc(m.rechargeItem||'-')+'</span><span>💰 充值总额：¥'+esc(m.totalAmount||0)+'</span><span>📊 总次数：'+esc(m.totalCount||0)+'次</span><span style="color:var(--primary-dark);font-weight:500;">✅ 剩余：'+esc(m.remainCount||0)+'次</span><span style="color:var(--mint);">已用：'+usedCount+'次</span></div>'+
+      '<div class="member-progress"><div class="member-progress-fill" style="width:'+remainPercent+'%;"></div></div>'+
+      projectHtml+
+      (m.note?'<div style="margin-top:8px;font-size:13px;color:var(--text-light);"><strong>📝 备注：</strong>'+esc(m.note)+'</div>':'')+
+      '<div class="member-detail-panel" id="memberDetail_'+m.id+'"><div class="card-title" style="font-size:14px;">💳 每次到店扣卡明细</div><div id="deductList_'+m.id+'"></div><button class="btn btn-primary btn-sm" style="margin-top:12px;" data-id="'+m.id+'">＋ 登记扣卡</button></div>'+
+      '</div>';
+  });
+  container.innerHTML = html;
+}
+
+document.getElementById('memberList').addEventListener('click', function(e){
+  var t = e.target;
+  if (t.classList.contains('edit-member')) openMemberModal(t.getAttribute('data-id'));
+  if (t.classList.contains('del-member')) {
+    if (!confirm('确认删除该会员档案？')) return;
+    var list = getMembers().filter(function(x){ return x.id!==t.getAttribute('data-id'); });
+    setMembers(list); renderMember(); showToast('已删除');
+  }
+  if (t.classList.contains('toggle-detail') || t.textContent==='＋ 登记扣卡') {
+    var mid = t.getAttribute('data-id');
+    var panel = document.getElementById('memberDetail_'+mid);
+    panel.classList.toggle('show');
+    if (panel.classList.contains('show')) renderDeductList(mid);
+    if (t.textContent==='＋ 登记扣卡') openDeductModal(mid);
+  }
+});
+
+function renderDeductList(memberId) {
+  var members = getMembers();
+  var m = members.find(function(x){ return x.id===memberId; });
+  if (!m) return;
+  var list = m.deductions || [];
+  var container = document.getElementById('deductList_'+memberId);
+  if (list.length===0) {
+    container.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">暂无扣卡记录</p>';
+    return;
+  }
+  list.sort(function(a,b){ return b.date.localeCompare(a.date); });
+  var html = '';
+  list.forEach(function(d,i){
+    html += '<div class="deduct-record"><span>'+esc(d.date)+' · '+esc(d.item)+' · 扣'+esc(d.count)+'次</span><button class="btn btn-danger btn-sm del-deduct" data-mid="'+memberId+'" data-idx="'+i+'">删除</button></div>';
+  });
+  container.innerHTML = html;
+}
+
+function openDeductModal(memberId) {
+  var body = '<div class="form-group"><label>到店日期</label><input type="date" id="dc_date" value="'+todayStr()+'"></div>'+
+    '<div class="form-group"><label>消费项目</label><input id="dc_item" placeholder="如：原生眉补色"></div>'+
+    '<div class="form-group"><label>扣除次数</label><input type="number" id="dc_count" value="1" min="1"></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">取消</button> <button class="btn btn-primary" id="btnSaveDeduct">保存</button>';
+  openModal('登记扣卡明细', body, footer);
+  document.getElementById('btnSaveDeduct').addEventListener('click', function(){
+    var record = { date: document.getElementById('dc_date').value, item: document.getElementById('dc_item').value.trim(), count: parseInt(document.getElementById('dc_count').value)||1 };
+    if (!record.item) { showToast('请填写消费项目'); return; }
+    var members = getMembers();
+    var m = members.find(function(x){ return x.id===memberId; });
+    if (!m) return;
+    m.deductions = m.deductions||[];
+    m.deductions.push(record);
+    m.remainCount = Math.max(0,(m.remainCount||0)-record.count);
+    setMembers(members); closeModal(); renderMember();
+    setTimeout(function(){ var p=document.getElementById('memberDetail_'+memberId); if(p){p.classList.add('show');renderDeductList(memberId);} },50);
+    showToast('扣卡记录已保存');
+  });
+}
+
+document.getElementById('memberList').addEventListener('click', function(e){
+  if (e.target.classList.contains('del-deduct')) {
+    if (!confirm('确认删除？')) return;
+    var mid = e.target.getAttribute('data-mid');
+    var idx = parseInt(e.target.getAttribute('data-idx'));
+    var members = getMembers();
+    var m = members.find(function(x){ return x.id===mid; });
+    if (!m||!m.deductions) return;
+    var removed = m.deductions.splice(idx,1)[0];
+    if (removed) m.remainCount = (m.remainCount||0)+(removed.count||1);
+    setMembers(members); renderMember();
+    setTimeout(function(){ var p=document.getElementById('memberDetail_'+mid); if(p){p.classList.add('show');renderDeductList(mid);} },50);
+  }
+});
+
+function openMemberModal(id) {
+  var list = getMembers();
+  var m = id?list.find(function(x){ return x.id===id; }):{};
+  // 新建时按当前分类视图预设
+  if (!id && memberCategoryFilter !== 'all') m.category = memberCategoryFilter;
+  var body = '<div class="form-row"><div class="form-group"><label>顾客姓名</label><input id="mb_name" value="'+esc(m.name||'')+'" placeholder="顾客姓名"></div><div class="form-group"><label>联系方式</label><input id="mb_phone" value="'+esc(m.phone||'')+'" placeholder="手机号"></div></div>'+
+    '<div class="form-group"><label>充值项目</label><input id="mb_rechargeItem" value="'+esc(m.rechargeItem||'')+'" placeholder="如：原生眉改造10次卡"></div>'+
+    '<div class="form-row-3"><div class="form-group"><label>充值总金额</label><input type="number" id="mb_totalAmount" value="'+(m.totalAmount||'')+'" placeholder="元"></div><div class="form-group"><label>项目总次数</label><input type="number" id="mb_totalCount" value="'+(m.totalCount||'')+'" placeholder="次"></div><div class="form-group"><label>剩余次数</label><input type="number" id="mb_remainCount" value="'+(m.remainCount!==undefined?m.remainCount:'')+'" placeholder="次"></div></div>'+
+    '<div class="form-group"><label>备注（审美偏好/肤质/需求/医美转化）</label><textarea id="mb_note" placeholder="如：偏好自然风、敏感肌、适合后续水光针转化...">'+esc(m.note||'')+'</textarea></div>'+
+    '<div class="form-group"><label>客人分类</label><div class="category-options"><label class="category-option"><input type="radio" name="mb_category" value="banyongjiu" '+(m.category!=='yimei'?'checked':'')+'> <span>🎨 半永久客人</span></label><label class="category-option"><input type="radio" name="mb_category" value="yimei" '+(m.category==='yimei'?'checked':'')+'> <span>💉 医美客人</span></label></div></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">取消</button> <button class="btn btn-primary" id="btnSaveMember">保存</button>';
+  openModal(id?'编辑会员档案':'新建会员档案', body, footer);
+  document.getElementById('btnSaveMember').addEventListener('click', function(){ saveMember(id||''); });
+}
+
+function saveMember(id) {
+  var catEl = document.querySelector('input[name="mb_category"]:checked');
+  var data = {
+    id: id||uid(), name: document.getElementById('mb_name').value.trim(),
+    phone: document.getElementById('mb_phone').value.trim(),
+    rechargeItem: document.getElementById('mb_rechargeItem').value.trim(),
+    totalAmount: document.getElementById('mb_totalAmount').value,
+    totalCount: parseInt(document.getElementById('mb_totalCount').value)||0,
+    remainCount: parseInt(document.getElementById('mb_remainCount').value)||0,
+    note: document.getElementById('mb_note').value.trim(),
+    category: catEl?catEl.value:'banyongjiu', deductions: []
+  };
+  if (!data.name) { showToast('请填写顾客姓名'); return; }
+  var list = getMembers();
+  var idx = list.findIndex(function(x){ return x.id===id; });
+  if (idx>=0) { data.deductions=list[idx].deductions||[]; list[idx]=data; }
+  else list.push(data);
+  setMembers(list); closeModal(); renderMember(); showToast('会员档案已保存');
+}
+
+document.getElementById('btnNewMember').addEventListener('click', function(){ openMemberModal(); });
+document.getElementById('memberSearch').addEventListener('input', renderMember);
+
+document.getElementById('memberStats').addEventListener('click', function(e){
+  var card = e.target.closest('.stat-card-link');
+  if (!card) return;
+  memberCategoryFilter = card.getAttribute('data-category');
+  renderMember();
+});
+
+document.getElementById('memberListTitle').addEventListener('click', function(e){
+  if (e.target.id === 'btnResetMemberCategory') {
+    memberCategoryFilter = 'all';
+    renderMember();
+  }
+});
+
+// ========== 5. 每日计划 ==========
+function getPlans() { return getKey('plans',{}); }
+function setPlans(obj) { setKey('plans',obj); }
+function getFixedTasks() { return getKey('fixedTasks',[]); }
+function setFixedTasks(arr) { setKey('fixedTasks',arr); }
+
+function renderPlan() {
+  var dateInput = document.getElementById('planDate');
+  if (!dateInput.value) dateInput.value = todayStr();
+  var date = dateInput.value;
+  var plans = getPlans();
+  var dayPlan = plans[date]||[];
+
+  if (dayPlan.length===0) {
+    var fixed = getFixedTasks();
+    if (fixed.length>0) {
+      plans[date] = fixed.map(function(t){ return {id:uid(),text:t,done:false,fixed:true}; });
+      setPlans(plans);
+    }
+  }
+
+  var currentPlan = plans[date]||[];
+  document.getElementById('planTitle').textContent = '✅ '+date+' 任务清单';
+  var container = document.getElementById('planList');
+  if (currentPlan.length===0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">✅</div><p>今日暂无任务，点击「添加任务」</p></div>';
+    return;
+  }
+  var html = '';
+  currentPlan.forEach(function(t){
+    html += '<div class="task-item"><div class="task-checkbox '+(t.done?'checked':'')+'" data-date="'+date+'" data-id="'+t.id+'"></div><span class="task-text '+(t.done?'done':'')+'">'+esc(t.text)+'</span>'+(t.fixed?'<span class="task-fixed-tag">固定任务</span>':'')+'<button class="btn btn-danger btn-sm del-plan" data-date="'+date+'" data-id="'+t.id+'">删除</button></div>';
+  });
+  container.innerHTML = html;
+}
+
+document.getElementById('planList').addEventListener('click', function(e){
+  if (e.target.classList.contains('task-checkbox')) {
+    var date = e.target.getAttribute('data-date');
+    var id = e.target.getAttribute('data-id');
+    var plans = getPlans();
+    var dayPlan = plans[date]||[];
+    var t = dayPlan.find(function(x){ return x.id===id; });
+    if (t) { t.done=!t.done; setPlans(plans); renderPlan(); }
+  }
+  if (e.target.classList.contains('del-plan')) {
+    var date = e.target.getAttribute('data-date');
+    var id = e.target.getAttribute('data-id');
+    var plans = getPlans();
+    plans[date] = (plans[date]||[]).filter(function(x){ return x.id!==id; });
+    setPlans(plans); renderPlan();
+  }
+});
+
+function openPlanTaskModal() {
+  var date = document.getElementById('planDate').value||todayStr();
+  var body = '<div class="form-group"><label>任务内容</label><input id="pl_text" placeholder="如：接待王姐 / 短视频拍摄 / 门店复盘"></div><div class="form-group"><label>设为固定任务（每日自动带出）</label><select id="pl_fixed"><option value="0">否</option><option value="1">是</option></select></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">取消</button> <button class="btn btn-primary" id="btnSavePlan">添加</button>';
+  openModal('添加任务', body, footer);
+  document.getElementById('btnSavePlan').addEventListener('click', function(){
+    var text = document.getElementById('pl_text').value.trim();
+    var isFixed = document.getElementById('pl_fixed').value==='1';
+    if (!text) { showToast('请输入任务内容'); return; }
+    if (isFixed) { var fixed=getFixedTasks(); if (!fixed.includes(text)){fixed.push(text);setFixedTasks(fixed);} }
+    var plans = getPlans();
+    plans[date] = plans[date]||[];
+    plans[date].push({id:uid(),text:text,done:false,fixed:isFixed});
+    setPlans(plans); closeModal(); renderPlan(); showToast('任务已添加');
+  });
+}
+
+document.getElementById('btnAddPlan').addEventListener('click', openPlanTaskModal);
+document.getElementById('btnResetPlan').addEventListener('click', function(){
+  var date = document.getElementById('planDate').value||todayStr();
+  if (!confirm('确认重置当日清单？已完成任务将清除，固定任务保留为未完成。')) return;
+  var plans = getPlans();
+  var fixed = getFixedTasks();
+  plans[date] = fixed.map(function(t){ return {id:uid(),text:t,done:false,fixed:true}; });
+  setPlans(plans); renderPlan(); showToast('当日清单已重置');
+});
+document.getElementById('planDate').addEventListener('change', renderPlan);
+
+// ========== 6. 自媒体素材库 ==========
+var currentMediaTab = 'young';
+function getMedia() { return getKey('media',{young:[],mom:[]}); }
+function setMedia(obj) { setKey('media',obj); }
+
+function switchMediaTab(tab) {
+  currentMediaTab = tab;
+  document.querySelectorAll('.tab-item').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById(tab==='young'?'mediaTabYoung':'mediaTabMom').classList.add('active');
+  renderMedia();
+}
+
+document.getElementById('mediaTabYoung').addEventListener('click', function(){ switchMediaTab('young'); });
+document.getElementById('mediaTabMom').addEventListener('click', function(){ switchMediaTab('mom'); });
+
+function renderMedia() {
+  var media = getMedia();
+  var list = media[currentMediaTab]||[];
+  var tabName = currentMediaTab==='young'?'《日常原生改造》年轻女生赛道':'《淡颜好气色》中年宝妈赛道';
+  document.getElementById('mediaListTitle').textContent = '🎬 '+tabName+' 素材列表';
+  var container = document.getElementById('mediaList');
+  if (list.length===0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">🎬</div><p>暂无素材，点击「新增素材」</p></div>';
+    return;
+  }
+  var statusMap = {'shoot':'待拍摄','done':'已拍摄','pub':'已发布'};
+  var statusClass = {'shoot':'status-shoot','done':'status-done','pub':'status-pub'};
+  var html = '';
+  list.forEach(function(m){
+    html += '<div class="card" style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:8px;"><div style="flex:1;min-width:200px;"><strong style="font-size:15px;">'+esc(m.topic)+'</strong><span class="status-tag '+statusClass[m.status]+'" style="margin-left:8px;">'+statusMap[m.status]+'</span></div><div class="actions"><button class="btn btn-outline btn-sm edit-media" data-id="'+m.id+'">编辑</button> <button class="btn btn-danger btn-sm del-media" data-id="'+m.id+'">删除</button></div></div>'+
+    (m.script?'<div style="margin-top:10px;font-size:13px;color:var(--text-light);"><strong>短视频脚本：</strong><pre style="white-space:pre-wrap;margin-top:4px;background:var(--bg);padding:10px;border-radius:6px;">'+esc(m.script)+'</pre></div>':'')+
+    (m.copywriting?'<div style="margin-top:8px;font-size:13px;color:var(--text-light);"><strong>口播文案：</strong><span>'+esc(m.copywriting)+'</span></div>':'')+
+    (m.pubPlatform?'<div class="publish-record">📤 发布记录：'+esc(m.pubPlatform)+' · '+esc(m.pubTime||'')+'</div>':'')+
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function openMediaModal(id) {
+  var media = getMedia();
+  var list = media[currentMediaTab]||[];
+  var m = id?list.find(function(x){ return x.id===id; }):{};
+  var body = '<div class="form-group"><label>每日拍摄选题</label><input id="md_topic" value="'+esc(m.topic||'')+'" placeholder="如：素颜改造第一天"></div>'+
+    '<div class="form-group"><label>短视频完整脚本</label><textarea id="md_script" style="min-height:100px;" placeholder="分镜脚本...">'+esc(m.script||'')+'</textarea></div>'+
+    '<div class="form-group"><label>口播文案</label><textarea id="md_copywriting" placeholder="口播内容...">'+esc(m.copywriting||'')+'</textarea></div>'+
+    '<div class="form-row"><div class="form-group"><label>素材状态</label><select id="md_status"><option value="shoot"'+(m.status==='shoot'?' selected':'')+'>待拍摄</option><option value="done"'+(m.status==='done'?' selected':'')+'>已拍摄</option><option value="pub"'+(m.status==='pub'?' selected':'')+'>已发布</option></select></div><div class="form-group"><label>发布平台</label><input id="md_pubPlatform" value="'+esc(m.pubPlatform||'')+'" placeholder="抖音/小红书"></div></div>'+
+    '<div class="form-group"><label>发布时间</label><input id="md_pubTime" value="'+esc(m.pubTime||'')+'" placeholder="如：2026-07-31 18:00"></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">取消</button> <button class="btn btn-primary" id="btnSaveMedia">保存</button>';
+  openModal(id?'编辑素材':'新增素材', body, footer);
+  document.getElementById('btnSaveMedia').addEventListener('click', function(){ saveMedia(id||''); });
+}
+
+function saveMedia(id) {
+  var data = {
+    id: id||uid(), topic: document.getElementById('md_topic').value.trim(),
+    script: document.getElementById('md_script').value.trim(),
+    copywriting: document.getElementById('md_copywriting').value.trim(),
+    status: document.getElementById('md_status').value,
+    pubPlatform: document.getElementById('md_pubPlatform').value.trim(),
+    pubTime: document.getElementById('md_pubTime').value.trim()
+  };
+  if (!data.topic) { showToast('请填写拍摄选题'); return; }
+  var media = getMedia();
+  media[currentMediaTab] = media[currentMediaTab]||[];
+  var list = media[currentMediaTab];
+  var idx = list.findIndex(function(x){ return x.id===id; });
+  if (idx>=0) list[idx]=data; else list.push(data);
+  setMedia(media); closeModal(); renderMedia(); showToast('素材已保存');
+}
+
+document.getElementById('btnNewMedia').addEventListener('click', function(){ openMediaModal(); });
+document.getElementById('mediaList').addEventListener('click', function(e){
+  if (e.target.classList.contains('edit-media')) openMediaModal(e.target.getAttribute('data-id'));
+  if (e.target.classList.contains('del-media')) {
+    if (!confirm('确认删除？')) return;
+    var media = getMedia();
+    media[currentMediaTab] = (media[currentMediaTab]||[]).filter(function(x){ return x.id!==e.target.getAttribute('data-id'); });
+    setMedia(media); renderMedia(); showToast('已删除');
+  }
+});
+
+// ========== 7. 好好吃饭打卡 ==========
+function getMeals() { return getKey('meals',{}); }
+function setMeals(obj) { setKey('meals',obj); }
+
+function renderMeal() {
+  var dateInput = document.getElementById('mealDate');
+  if (!dateInput.value) dateInput.value = todayStr();
+  var date = dateInput.value;
+  var meals = getMeals();
+  var dayMeal = meals[date]||{breakfast:'',lunch:'',dinner:'',snack:''};
+  document.getElementById('mealBreakfast').value = dayMeal.breakfast||'';
+  document.getElementById('mealLunch').value = dayMeal.lunch||'';
+  document.getElementById('mealDinner').value = dayMeal.dinner||'';
+  document.getElementById('mealSnack').value = dayMeal.snack||'';
+
+  var dates = Object.keys(meals).sort().reverse();
+  var container = document.getElementById('mealHistory');
+  if (dates.length===0) {
+    container.innerHTML = '<div class="empty-state"><p>暂无历史饮食记录</p></div>';
+    return;
+  }
+  var html = '';
+  dates.slice(0,30).forEach(function(d){
+    var m = meals[d];
+    if (!m) return;
+    html += '<div class="deduct-record" style="display:block;"><div style="font-weight:600;margin-bottom:6px;">'+d+'</div><div style="font-size:13px;color:var(--text-light);">'+
+      (m.breakfast?'🌅 '+esc(m.breakfast)+'　':'')+(m.lunch?'☀️ '+esc(m.lunch)+'　':'')+(m.dinner?'🌙 '+esc(m.dinner)+'　':'')+(m.snack?'🍪 '+esc(m.snack):'')+'</div></div>';
+  });
+  container.innerHTML = html;
+}
+
+function saveMeal() {
+  var date = document.getElementById('mealDate').value;
+  if (!date) return;
+  var meals = getMeals();
+  meals[date] = {
+    breakfast: document.getElementById('mealBreakfast').value.trim(),
+    lunch: document.getElementById('mealLunch').value.trim(),
+    dinner: document.getElementById('mealDinner').value.trim(),
+    snack: document.getElementById('mealSnack').value.trim()
+  };
+  setMeals(meals); renderMeal();
+}
+
+document.getElementById('mealDate').addEventListener('change', renderMeal);
+['mealBreakfast','mealLunch','mealDinner','mealSnack'].forEach(function(id){
+  document.getElementById(id).addEventListener('blur', saveMeal);
+});
+
+// ========== 8. 体重记录 ==========
+function getWeights() { return getKey('weights',[]); }
+function setWeights(arr) { setKey('weights',arr); }
+
+function renderWeight() {
+  var list = getWeights();
+  list.sort(function(a,b){ return a.date.localeCompare(b.date); });
+
+  var container = document.getElementById('weightList');
+  if (list.length===0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">⚖️</div><p>暂无体重记录</p></div>';
+    document.getElementById('latestWeight').innerHTML = '—<span class="stat-unit">kg</span>';
+    document.getElementById('maxWeight').innerHTML = '—<span class="stat-unit">kg</span>';
+    document.getElementById('minWeight').innerHTML = '—<span class="stat-unit">kg</span>';
+    document.getElementById('weightCount').innerHTML = '0<span class="stat-unit">条</span>';
+    drawWeightChart([]);
+    return;
+  }
+
+  var weights = list.map(function(x){ return parseFloat(x.weight)||0; });
+  var latest = weights[weights.length-1];
+  var max = Math.max.apply(null,weights);
+  var min = Math.min.apply(null,weights);
+  document.getElementById('latestWeight').innerHTML = latest.toFixed(1)+'<span class="stat-unit">kg</span>';
+  document.getElementById('maxWeight').innerHTML = max.toFixed(1)+'<span class="stat-unit">kg</span>';
+  document.getElementById('minWeight').innerHTML = min.toFixed(1)+'<span class="stat-unit">kg</span>';
+  document.getElementById('weightCount').innerHTML = list.length+'<span class="stat-unit">条</span>';
+
+  drawWeightChart(list);
+
+  var html = '<table class="data-table"><thead><tr><th>记录日期</th><th>晨起体重</th><th>变化</th><th>操作</th></tr></thead><tbody>';
+  list.slice().reverse().forEach(function(w,i){
+    var realIdx = list.length-1-i;
+    var change = '';
+    if (realIdx>0) {
+      var diff = (parseFloat(list[realIdx].weight)-parseFloat(list[realIdx-1].weight));
+      var sign = diff>0?'+':'';
+      var color = diff>0?'#D4958A':diff<0?'#8FB89A':'var(--text-muted)';
+      change = '<span style="color:'+color+';">'+sign+diff.toFixed(1)+'kg</span>';
+    } else {
+      change = '<span style="color:var(--text-muted);">—</span>';
+    }
+    html += '<tr><td>'+esc(w.date)+'</td><td><strong>'+esc(w.weight)+' kg</strong></td><td>'+change+'</td><td class="actions"><button class="btn btn-outline btn-sm edit-weight" data-id="'+w.id+'">编辑</button> <button class="btn btn-danger btn-sm del-weight" data-id="'+w.id+'">删除</button></td></tr>';
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function drawWeightChart(list) {
+  var canvas = document.getElementById('weightChart');
+  if (!canvas) return;
+  var dpr = window.devicePixelRatio||1;
+  var w = canvas.clientWidth||600;
+  var h = 200;
+  canvas.width = w*dpr;
+  canvas.height = h*dpr;
+  canvas.style.height = h+'px';
+  var ctx = canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,w,h);
+
+  if (list.length<2) {
+    ctx.fillStyle = '#C4A895'; ctx.font = '14px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('至少2条记录才能显示趋势',w/2,h/2); return;
+  }
+
+  var weights = list.map(function(x){ return parseFloat(x.weight)||0; });
+  var maxW = Math.max.apply(null,weights);
+  var minW = Math.min.apply(null,weights);
+  var range = maxW-minW||1;
+  var pad = 30;
+  var chartW = w-pad*2;
+  var chartH = h-pad*2;
+
+  ctx.strokeStyle = '#F0E1D3'; ctx.lineWidth = 1;
+  for (var i=0;i<=4;i++) {
+    var y = pad+(chartH/4)*i;
+    ctx.beginPath(); ctx.moveTo(pad,y); ctx.lineTo(w-pad,y); ctx.stroke();
+  }
+
+  ctx.strokeStyle = '#D4A78B'; ctx.lineWidth = 2;
+  ctx.beginPath();
+  list.forEach(function(item,i){
+    var x = pad+(chartW/(list.length-1))*i;
+    var val = parseFloat(item.weight)||0;
+    var y = pad+chartH-((val-minW)/range)*chartH;
+    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  ctx.fillStyle = '#B8856D';
+  list.forEach(function(item,i){
+    var x = pad+(chartW/(list.length-1))*i;
+    var val = parseFloat(item.weight)||0;
+    var y = pad+chartH-((val-minW)/range)*chartH;
+    ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2); ctx.fill();
+  });
+
+  ctx.fillStyle = '#8C6B5A'; ctx.font = '11px sans-serif'; ctx.textAlign = 'left';
+  ctx.fillText(maxW.toFixed(1)+'kg',2,pad+4);
+  ctx.fillText(minW.toFixed(1)+'kg',2,h-pad+4);
+}
+
+function openWeightModal(id) {
+  var list = getWeights();
+  var w = id?list.find(function(x){ return x.id===id; }):{};
+  var body = '<div class="form-row"><div class="form-group"><label>记录日期</label><input type="date" id="wt_date" value="'+(w.date||todayStr())+'"></div><div class="form-group"><label>晨起体重（kg）</label><input type="number" step="0.1" id="wt_weight" value="'+(w.weight||'')+'" placeholder="如：55.5"></div></div>';
+  var footer = '<button class="btn btn-outline" onclick="closeModal()">取消</button> <button class="btn btn-primary" id="btnSaveWeight">保存</button>';
+  openModal(id?'编辑体重':'记录体重', body, footer);
+  document.getElementById('btnSaveWeight').addEventListener('click', function(){ saveWeight(id||''); });
+}
+
+function saveWeight(id) {
+  var data = { id: id||uid(), date: document.getElementById('wt_date').value, weight: document.getElementById('wt_weight').value };
+  if (!data.date||!data.weight) { showToast('请填写日期和体重'); return; }
+  var list = getWeights();
+  var idx = list.findIndex(function(x){ return x.id===id; });
+  if (idx>=0) list[idx]=data; else list.push(data);
+  setWeights(list); closeModal(); renderWeight(); showToast('体重记录已保存');
+}
+
+document.getElementById('btnNewWeight').addEventListener('click', function(){ openWeightModal(); });
+document.getElementById('weightList').addEventListener('click', function(e){
+  if (e.target.classList.contains('edit-weight')) openWeightModal(e.target.getAttribute('data-id'));
+  if (e.target.classList.contains('del-weight')) {
+    if (!confirm('确认删除？')) return;
+    var list = getWeights().filter(function(x){ return x.id!==e.target.getAttribute('data-id'); });
+    setWeights(list); renderWeight(); showToast('已删除');
+  }
+});
+
+// ========== 导出/导入备份 ==========
+document.getElementById('btnExport').addEventListener('click', function(){
+  var data = localStorage.getItem(STORE_KEY) || '{}';
+  var blob = new Blob([data], {type:'application/json'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = '五悠工作台备份_' + todayStr() + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('备份文件已下载');
+});
+
+document.getElementById('btnImport').addEventListener('click', function(){
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json,application/json';
+  input.onchange = function(e){
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      try {
+        var data = JSON.parse(ev.target.result);
+        if (!confirm('确认导入？当前数据将被覆盖！')) return;
+        localStorage.setItem(STORE_KEY, JSON.stringify(data));
+        showToast('数据恢复成功，正在刷新...');
+        setTimeout(function(){ location.reload(); }, 1500);
+      } catch(err) {
+        showToast('文件格式错误，请选择正确的备份文件');
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+});
+
+// ========== 初始化 ==========
+renderBooking();
+</script>
+</body>
+</html>
