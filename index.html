@@ -208,6 +208,13 @@ body {
 .stat-card:nth-child(3) .stat-value { color: #5E8A6E; }
 .stat-card:nth-child(4) .stat-value { color: #7B68A0; }
 .stat-card .stat-unit { font-size: 14px; color: var(--text-muted); margin-left: 4px; font-weight: 500; }
+.booking-tabs { display:flex; gap:6px; background:rgba(255,255,255,.6); padding:4px; border-radius:14px; border:1.5px solid var(--border); }
+.booking-tab { padding:8px 16px; border:none; background:transparent; color:var(--text-light); font-size:13px; font-weight:500; border-radius:10px; cursor:pointer; display:flex; align-items:center; gap:6px; font-family:inherit; -webkit-tap-highlight-color:transparent; transition:all .25s; }
+.booking-tab:hover { color:var(--text); }
+.booking-tab.active { background:linear-gradient(135deg, var(--primary), var(--primary-dark)); color:#fff; box-shadow:0 2px 8px rgba(184,133,109,.2); }
+.tab-badge { display:inline-block; min-width:22px; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:600; background:rgba(255,255,255,.4); text-align:center; }
+.booking-tab:not(.active) .tab-badge { background:rgba(212,167,139,.15); color:var(--primary-dark); }
+.booking-row-done td { opacity:.65; background:#FFFCF9; }
 .stat-card-link { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .stat-card-link:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(212,167,139,.18); border-color: var(--primary); }
 .stat-card-link[data-category="banyongjiu"]::before { background: var(--mint); }
@@ -456,11 +463,15 @@ body {
         <h2>预约管理</h2>
         <p>管理客户预约信息，按日期排序，支持归档半永久客户</p>
       </div>
-      <div style="margin-bottom:20px;">
+      <div style="margin-bottom:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
         <button class="btn btn-primary" id="btnNewBooking">＋ 新建预约</button>
+        <div class="booking-tabs">
+          <button class="booking-tab active" data-tab="pending">📅 待到店 <span class="tab-badge" id="bookingPendingCount">0</span></button>
+          <button class="booking-tab" data-tab="done">✅ 已完成 <span class="tab-badge" id="bookingDoneCount">0</span></button>
+        </div>
       </div>
       <div class="card">
-        <div class="card-title">📋 预约列表</div>
+        <div class="card-title" id="bookingListTitle">📋 预约列表</div>
         <div id="bookingList"></div>
       </div>
     </div>
@@ -725,19 +736,42 @@ document.getElementById('modalOverlay').addEventListener('click', function(e){
 function getBookings() { return getKey('bookings', []); }
 function setBookings(arr) { setKey('bookings', arr); }
 
+var bookingCurrentTab = 'pending';
+
 function renderBooking() {
   var list = getBookings();
   list.sort(function(a,b){ return (a.date+' '+a.time).localeCompare(b.date+' '+b.time); });
+  // 统计数量
+  var pendingList = list.filter(function(b){ return b.status==='pending' || !b.status; });
+  var doneList = list.filter(function(b){ return b.status==='arrived' || b.status==='cancel'; });
+  document.getElementById('bookingPendingCount').textContent = pendingList.length;
+  document.getElementById('bookingDoneCount').textContent = doneList.length;
+  // Tab 状态
+  var tabs = document.querySelectorAll('.booking-tab');
+  tabs.forEach(function(t){
+    if (t.getAttribute('data-tab') === bookingCurrentTab) t.classList.add('active');
+    else t.classList.remove('active');
+  });
+  // 当前显示的列表
+  var showList = bookingCurrentTab === 'pending' ? pendingList : doneList;
+  var titleMap = { pending: '📅 待到店预约', done: '✅ 已完成预约（已到店/取消）' };
+  document.getElementById('bookingListTitle').textContent = titleMap[bookingCurrentTab];
+
   var container = document.getElementById('bookingList');
-  if (list.length === 0) {
-    container.innerHTML = '<div class="empty-state"><div class="empty-icon">📋</div><p>暂无预约记录，点击「新建预约」添加</p></div>';
+  if (showList.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">'+(bookingCurrentTab==='pending'?'📅':'✅')+'</div><p>'+(bookingCurrentTab==='pending'?'暂无待到店预约，点击「新建预约」添加':'暂无已完成预约')+'</p></div>';
     return;
   }
   var statusMap = {'pending':'待到店','arrived':'已到店','cancel':'取消预约'};
   var statusClass = {'pending':'status-pending','arrived':'status-arrived','cancel':'status-cancel'};
+  // 待到店按日期升序；已完成按日期降序（最新的在最上面）
+  if (bookingCurrentTab === 'done') {
+    showList = showList.slice().sort(function(a,b){ return (b.date+' '+b.time).localeCompare(a.date+' '+a.time); });
+  }
   var html = '<table class="data-table"><thead><tr><th>客人姓名</th><th>服务项目</th><th>预约日期</th><th>预约时间</th><th>客户备注</th><th>状态</th><th>操作</th></tr></thead><tbody>';
-  list.forEach(function(b){
-    html += '<tr><td>'+esc(b.name)+'</td><td>'+esc(b.service)+'</td><td>'+esc(b.date)+'</td><td>'+esc(b.time)+'</td><td>'+esc(b.note||'-')+'</td><td><span class="status-tag '+statusClass[b.status]+'">'+statusMap[b.status]+'</span></td><td class="actions"><button class="btn btn-outline btn-sm edit-booking" data-id="'+b.id+'">编辑</button> <button class="btn btn-danger btn-sm del-booking" data-id="'+b.id+'">删除</button></td></tr>';
+  showList.forEach(function(b){
+    var rowCls = (bookingCurrentTab === 'done') ? ' class="booking-row-done"' : '';
+    html += '<tr'+rowCls+'><td>'+esc(b.name)+'</td><td>'+esc(b.service)+'</td><td>'+esc(b.date)+'</td><td>'+esc(b.time)+'</td><td>'+esc(b.note||'-')+'</td><td><span class="status-tag '+statusClass[b.status||'pending']+'">'+statusMap[b.status||'pending']+'</span></td><td class="actions"><button class="btn btn-outline btn-sm edit-booking" data-id="'+b.id+'">编辑</button> <button class="btn btn-danger btn-sm del-booking" data-id="'+b.id+'">删除</button></td></tr>';
   });
   html += '</tbody></table>';
   container.innerHTML = html;
@@ -788,6 +822,13 @@ document.getElementById('bookingList').addEventListener('click', function(e){
     var list = getBookings().filter(function(x){ return x.id!==id; });
     setBookings(list); renderBooking(); showToast('已删除');
   }
+});
+
+document.querySelectorAll('.booking-tab').forEach(function(tab){
+  tab.addEventListener('click', function(){
+    bookingCurrentTab = this.getAttribute('data-tab');
+    renderBooking();
+  });
 });
 
 // ========== 2. 日程日历 ==========
